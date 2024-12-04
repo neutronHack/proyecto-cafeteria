@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #945B30, #DDD4CD);
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    color: rgba(161, 100, 14, 0.386);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .logo img {
+    width: 80px; 
+    margin-right: 20px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 20px;
+}
+
+.navbar nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.navbar .icons a img {
+    width: 24px; 
+    margin-left: 15px;
+}
+
+
+.create-account {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.create-account h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.create-account form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Yatayda ortalama */
+}
+
+.create-account form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #6d4c41; /* Koyu kahverengi çerçeve */
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* İçeriği kutu modeline göre düzenle */
+}
+
+.create-account form input:focus {
+    border-color: #5d4037; /* Odaklanıldığında daha koyu kahverengi */
+    outline: none; /* Odak halindeki dış çizgiyi kaldırma */
+}
+
+.create-account form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6d4c41;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.create-account form button:hover {
+    background-color: #5d4037;
+}
+
+.create-account p {
+    margin-top: 20px;
+    color: #666;
+}
+
+.create-account p a {
+    color: #6d4c41;
+    text-decoration: none;
+}
+
+.create-account p a:hover {
+    text-decoration: underline;
+}

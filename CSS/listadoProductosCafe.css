@@ -1,0 +1,70 @@
+#page-title {
+    text-align: center;
+    font-size: 48px;
+    color: #ece8e5;
+    margin-top: 100px;
+    font-weight: bold;
+}
+.container {
+    margin: 50px auto;
+    padding: 20px;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #502d16;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #502d16;
+    color: white;
+}
+
+h1 {
+   color: #502d16 !important
+}
+.input-quantity {
+    width: 60px;
+    text-align: center;
+}
+
+#summary {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #502d16;
+}
+
+#total {
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #502d16;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #704024;
+}

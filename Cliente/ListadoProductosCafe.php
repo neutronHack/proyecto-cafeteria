@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Compra - Tierra de Café</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/CSS/PaginaInicial.css">
+    <link rel="stylesheet" href="/CSS/DropdownMenu.css">
+    <link rel="stylesheet" href="/CSS/listadoProductosCafe.css">
+
+   
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <img src="/Img/Granos de cafe.jpg" class="rounded mx-auto d-block" width="100%" alt="Granos de cafe">
+        </div>
+
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="logo">
+                    <a href="#"><img src="/Img/logo.jpg" alt="logo"  alt="Tierra del Café"></a>
+                </div>
+                
+                <div class="nav-links"> 
+                    <li class="nav-item"><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+                        <ul class="dropdown">
+                            <li><a href="">CAFÉ</a></li>
+                            <li><a href="">ACCESORIOS</a></li>
+                        </ul>
+                    </li>
+                    <li class="ml-5 nav-item"><a href="javascript:void(0)">NOSOTROS<span class="glyphicon glyphicon-chevron-down"></span></a>
+                </div>
+                <div class="iconos">
+                    <a href="#carrito" >
+                        <img src="/Img/carrito.svg" class="iconos">
+                    </a>
+                    <a href="#perfil">
+                        <img src="/Img/inicio-sesion.svg" class="iconos">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <h1 id="page-title">Selecciona tus productos</h1>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cafe Amargo</td>
+                    <td>$5</td>
+                    <td><input type="number" class="input-quantity" id="product1" min="0" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Cafe Natural</td>
+                    <td>$6</td>
+                    <td><input type="number" class="input-quantity" id="product2" min="0" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Cafe de Caramelo</td>
+                    <td>$7</td>
+                    <td><input type="number" class="input-quantity" id="product3" min="0" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Cafe De Chocolate</td>
+                    <td>$8</td>
+                    <td><input type="number" class="input-quantity" id="product4" min="0" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Cafe Negro</td>
+                    <td>$5</td>
+                    <td><input type="number" class="input-quantity" id="product5" min="0" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Cafe Colombiano</td>
+                    <td>$9</td>
+                    <td><input type="number" class="input-quantity" id="product6" min="0" value="0"></td>
+                </tr>
+                <tr>
+                    <td>Cafe Expreso</td>
+                    <td>$10</td>
+                    <td><input type="number" class="input-quantity" id="product7" min="0" value="0"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="simulatePurchase()">Simular Compra</button>
+
+        <div id="summary">
+            <h3>Resumen de la compra</h3>
+            <p id="product-list">No has seleccionado productos.</p>
+            <p id="total">Total: $0</p>
+        </div>
+    </div>
+
+    <script>
+        function simulatePurchase() {
+            let productNames = ["Cafe Amargo", "Cafe Natural", "Cafe de Caramelo", "Cafe De Chocolate", "Cafe Negro", "Cafe Colombiano", "Cafe Expreso"];
+            let productPrices = [5, 6, 7, 8, 5, 9, 10];
+            let productQuantities = [
+                document.getElementById("product1").value,
+                document.getElementById("product2").value,
+                document.getElementById("product3").value,
+                document.getElementById("product4").value,
+                document.getElementById("product5").value,
+                document.getElementById("product6").value,
+                document.getElementById("product7").value
+            ];
+
+            let productList = "";
+            let total = 0;
+
+            for (let i = 0; i < productQuantities.length; i++) {
+                if (productQuantities[i] > 0) {
+                    productList += `${productQuantities[i]} x ${productNames[i]} - $${productPrices[i]} cada uno<br>`;
+                    total += productQuantities[i] * productPrices[i];
+                }
+            }
+
+            if (productList === "") {
+                document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
+            } else {
+                document.getElementById("product-list").innerHTML = productList;
+            }
+
+            document.getElementById("total").innerHTML = `Total: $${total}`;
+        }
+    </script>
+
+</body>
+</html>

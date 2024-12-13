@@ -1,70 +1,165 @@
-#page-title {
-    text-align: center;
-    font-size: 48px;
-    color: #ece8e5;
-    margin-top: 100px;
-    font-weight: bold;
-}
-.container {
-    margin: 50px auto;
-    padding: 20px;
-    width: 80%;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body 
+{
+    font-family: "Poppins", sans-serif;
+    color: #444444;
 }
 
-table {
+a, a:hover 
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.seccion-productos 
+{
+    padding: 80px 0 54px;
+}
+
+.seccion-productos .header h3 
+{
+    font-size: 1rem;
+    color: #fe302f;
+    font-weight: 500;
+}
+
+.seccion-productos .header h2 
+{
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #444444;
+}
+
+.seccion-productos .producto-individual 
+{
+    margin-bottom: 26px;
+}
+
+.seccion-productos .producto-individual .parte-1
+{
+    position: relative;
+    height: 290pc;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.seccion-productos .producto-individual .parte-1::before
+{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.3s;
 }
 
-table, th, td {
-    border: 1px solid #502d16;
+.seccion-productos .producto-individual:hover .parte-1::before
+{
+transform: scale(1.2,1.2) rotate(5deg);
 }
 
-th, td {
-    padding: 10px;
+.seccion-productos #producto-1 .parte-1::before
+{
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+		transition: all 0.3s;
+}
+
+.seccion-productos #producto-2 .parte-1::before
+{
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+		transition: all 0.3s;
+}
+
+.seccion-productos #producto-3 .parte-1::before
+{
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+		transition: all 0.3s;
+}
+.seccion-productos #producto-4 .parte-1::before
+{
+    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+    background-size: cover;
+		transition: all 0.3s;
+}
+
+.seccion-productos .producto-individual .parte-1 ul
+{
+    position: absolute;
+    bottom: -41px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.seccion-productos .producto-individual:hover .parte-1 ul 
+{
+    bottom: 30px;
+    opacity: 1;
+}
+
+.seccion-productos .producto-individual .parte-1 ul li 
+{
+    display: inline-block;
+    margin-right: 4px;
+}
+
+
+.seccion-productos .producto-individual .parte-1 ul li a
+{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffffff;
     text-align: center;
+    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    transition: color 0.2s;
 }
 
-th {
-    background-color: #502d16;
-    color: white;
+
+.seccion-productos .producto-individual .parte-1 ul li a:hover
+{
+    color: #fe302f;
 }
 
-h1 {
-   color: #502d16 !important
-}
-.input-quantity {
-    width: 60px;
-    text-align: center;
+
+.seccion-productos .producto-individual .parte-2 .titulo-producto
+{
+    font-size: 1rem;
 }
 
-#summary {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    font-size: 18px;
-    color: #502d16;
+.seccion-productos .producto-individual .parte-2 h4 
+{
+    display: inline-block;
+    font-size: 1rem;
 }
 
-#total {
-    font-weight: bold;
-    font-size: 22px;
-    margin-top: 20px;
+.seccion-productos .producto-individual .part-2 .precio-viejo-producto {
+    position: relative;
+    padding: 0 7px;
+    margin-right: 2px;
+    opacity: 0.6;
 }
 
-button {
-    background-color: #502d16;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+.seccion-productos .producto-individual .part-2 .precio-viejo-producto::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #444444;
+    transform: translateY(-50%);
 }
 
-button:hover {
-    background-color: #704024;
-}
+

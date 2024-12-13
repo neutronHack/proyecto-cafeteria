@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tierra de Café</title>
+    <style>
+        body {
+            background-color: #92b796;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #a1b792;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        #page-title {
+            text-align: center;
+            font-size: 86px;
+            color: #502d16; 
+            margin-top: 120px;
+            font-weight: bold;
+        }
+
+        #logo {
+            display: block;
+            margin: 20px auto;
+            width: 280px; /* Ajuste del tamaño del logo */
+            height: auto;
+        }
+
+        #toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #b3b792;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .main-container {
+            display: flex;
+            margin-top: 80px;
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            position: fixed;
+            top: 80px;
+            bottom: 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar a {
+            display: block;
+            color: #333;
+            padding: 10px;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sidebar a:hover {
+            background-color: #92b796;
+            color: white;
+        }
+
+        .content {
+            margin-left: 0;
+            padding: 20px;
+            flex-grow: 1;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content.shifted {
+            margin-left: 200px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .grid-item {
+            background-color: #b3b792;
+            border: 2px solid #502d16;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .img-small {
+            width: 200px;
+        }
+
+        .img-medium {
+            width: 200px;
+        }
+
+        .img-large {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button id="toggle-btn" onclick="toggleSidebar()">☰ Menú</button>
+    </header>
+
+    <h1 id="page-title">Tierra de Café</h1>
+
+    <img id="logo" src="C:/clase/imagenes/WhatsApp Image 2024-10-18 at 11.15.34_b222fb75.png" alt="Logo de Tierra de Café">
+
+    <div class="main-container">
+
+        <nav class="sidebar" id="sidebar">
+            <h3>Índice</h3>
+            <a href="#section1">Sección 1</a>
+            <a href="#section2">Sección 2</a>
+            <a href="#section3">Sección 3</a>
+            <a href="#section4">Sección 4</a>
+        </nav>
+
+        <div class="content" id="content">
+            <h1>Galería de Imágenes</h1>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/c9a54e4da1940a2ef3d1bf302b693f89.png" alt="Imagen 1" class="img-small">
+                    <p>Cafe Amargo - $5</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/9c746228ed16f04b83bc5978830043df.png" alt="Imagen 2" class="img-medium">
+                    <p>Cafe Natural - $6</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/59d18f077433c4ec49d304944d067a11.png" alt="Imagen 3" class="img-large">
+                    <p>Cafe de Caramelo - $7</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/957a6b2a4901814b2591a049e861e330.png" alt="Imagen 4" style="width: 200px;">
+                    <p>Cafe De Chocolate - $8</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/61bafa4c4f6f5314a6ae7c14ba3652b3.png" alt="Imagen 5" style="width: 200px;">
+                    <p>Cafe Negro - $5</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/dbfc5bbb4ce5d8ca825d11b5487e5815.png" alt="Imagen 6" class="img-small">
+                    <p>Café Tarrazú - $9</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/woods-blend-5lb.png" alt="Imagen 7" style="width: 280px;">
+                    <p>Cafe Expreso - $10</p>
+                </div>
+
+                <div class="grid-item">
+                    <img src="C:/clase/imagenes/90f81875cd6e5dcb6ce5f8233843246f.png" alt="Imagen 8" class="img-small">
+                    <p>Café Geisha  - $6</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.getElementById("content");
+            sidebar.classList.toggle("open");
+            content.classList.toggle("shifted");
+        }
+    </script>
+
+</body>
+</html>

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tierra del cafe</title>
-    <link rel="stylesheet" href="./CSS/PaginaInicial.css">
-    <link rel="stylesheet" href="./CSS/DropdownMenu.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Tierra del Cafe</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="/CSS/DropdownMenu.css">
+    <link rel="stylesheet" href="/CSS/PaginaInicial.css">
     <script src="/JS/dropdownMenu.js"></script>
 </head>
 <body>
-
+    <form action="/conexion/login.php" method="POST">
+    <!-- Üst Görsel -->
+    
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="/Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
+                <img src="/Img/logo.jpg" class="logo"  alt="Tierra del Café"> 
             </div>
             <div class="nav-links"> 
                 <li><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
@@ -36,24 +36,19 @@
             </div>
         </nav>
     </header>
-
-    <div class="container">
-        <div class="wrapper">
-            <div class="wrapper-holder">
-                <div id="slider-img1"></div>
-                <div id="slider-img2"></div>
-                <div id="slider-img3"></div>
-                <div id="slider-img4"></div>
-            </div>
+    <main>
+        <div class="login-container">
+            <h1>INICIAR SESIÓN</h1>
+            <form>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">INICIAR SESIÓN</button>
+                <a href="/CrearCuenta.html" class="crear-cuenta-link">Crear una cuenta</a>
+        
+                </a>
+            </form>
         </div>
-        <div class="button-holder">
-            <a href="#slider-img1" class="button"></a>
-            <a href="#slider-img2" class="button"></a>
-            <a href="#slider-img3" class="button"></a>
-            <a href="#slider-img4" class="button"></a>
-        </div>
-    </div>
-
-    
+    </main>
+</form>
 </body>
 </html>

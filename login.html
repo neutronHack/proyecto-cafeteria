@@ -10,19 +10,19 @@
     <script src="/JS/dropdownMenu.js"></script>
 </head>
 <body>
-    <form action="/conexion/login.php" method="POST">
+    <form action="../proyecto-cafeteria/conexion/login.php" method="POST">
     <!-- Üst Görsel -->
   
     <main>
         <div class="login-container">
             <h1>INICIAR SESIÓN</h1>
-            <form>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="submit">INICIAR SESIÓN</button>
-                <a href="/CrearCuenta.html" class="crear-cuenta-link">Crear una cuenta</a>
         
-                </a>
+                <input type="email" placeholder="Correo electrónico" name="email" required>
+                <input type="password" placeholder="Contraseña" name="password" required>
+                <input type="submit" value="INICIAR SESIÓN">
+                <a href="../proyecto-cafeteria/CrearCuenta.html" class="crear-cuenta-link">Crear una cuenta</a>
+        
+                
             </form>
         </div>
     </main>

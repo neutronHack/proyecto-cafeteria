@@ -1,31 +1,48 @@
-<?php 
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "cafeteria";
-
-//crear conex
-if ($conn-> connect_error){
-    die("Conexion Fallida". $conn->connect_error);
-}
-
+<?php
+require 'conexionBD.php';
+session_start();
 //obtener datos del formulario
-$CorreoElectronico = $_POST["Correo Electronico"];
-$contrasena = $_POST["contrasena"];
+$CorreoElectronico = $_POST["email"];
+$contrasena = $_POST["password"];
+
+echo $CorreoElectronico. "<br>";
+echo $contrasena. "<br>";
 
 //Verificar si el usuario existe
-$sql = "SELECT * FROM usuario WHERE CorreoElectronico='$CorreoElectronico'"; 
-$result = $conn->query($sql); 
+$sql = "SELECT * FROM usuario WHERE CorreoElectronico='$CorreoElectronico'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-if ($result->num_rows > 0) { 
-    $row = $result->fetch_assoc();
-     if (password_verify($contrasena, $row['contrasena'])) { 
-        echo "Inicio de sesión exitoso"; // Aquí puedes iniciar sesión y redirigir al usuario 
-    } else { 
-        echo "Contraseña incorrecta"; 
-    } 
-} else { 
-    echo "No se encontró el usuario"; 
-            } 
-$conn->close();
+
+if ($row['CorreoElectronico'] == $CorreoElectronico) {
+
+
+    if ($row['contrasena'] == $contrasena) {
+
+        echo "<script> alert('has iniciado sesion con exito')    </script>";
+        if ($row['id_Rol'] == 1) {
+            // Administrador
+
+        } elseif ($row['id_Rol'] == 2) {
+            // Usuario
+
+            $ID_USUARIO = $row['id_usuario'];
+            $correoUsuario = $row['CorreoElectronico'];
+            
+            $_SESSION['IDuser'] = $ID_USUARIO;// ----------------------------------------------- ID DE SESION DE USUARIO------------------------------
+            $_SESSION['CorreoUser'] = $correoUsuario; // -------------------------------------------- CORREO DEL USUARIO EN LA SESSION ----------------------------
+            echo "<script> window.location.href = `../indexUser.php`; </script>";
+
+        }
+    } else {
+        echo "<script> alert(`Contraseña no valida`);    window.history.back();   </script>";
+    }
+} else {
+    echo "<script> alert(`Correo electronico no valido`); window.history.back(); </script>";
+}
+
+
+mysqli_close($conn);
+
 ?>
+

@@ -1,4 +1,4 @@
--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,15 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/logo.jpg" alt="Tierra del Café" />
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Tienda</a></li>
-                <li><a href="#">Nosotros</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../proyecto-cafeteria/Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
+
+
+                
+            </div>
+            
         </nav>
-        <div class="icons">
-            <a href="#"><img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/carrito.svg" alt="Cart Icon"></a>
-            <a href="#"><img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/inicio-sesion.svg" alt="User Icon"></a>
-        </div>
     </header>
     <main>
         <h1>Su perfil de Tierra del Café</h1>
@@ -32,9 +28,9 @@
                 <button>Ver Direcciones</button>
             </a>
             <button class="active">Pedidos</button>
-            <a href="iniciarsesion.html" class="button">
-            <button class="logout">Cerrar Sesión</button>
-            </a>
+            
+                <button onclick="window.location.href = 'index.html';" class="logout">Cerrar Sesión</button>
+            
         </div>
         <section class="pedidos">
             <h2>Historial de pedidos</h2>
@@ -50,5 +46,6 @@
             <!-- Diğer siparişler buraya eklenebilir -->
         </section>
     </main>
+   
 </body>
 </html>

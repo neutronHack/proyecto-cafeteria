@@ -62,12 +62,12 @@ session_start();
 <body>
 <h1>pagina de admin </h1>
 <img src="../Img/logo.jpg" width="150" alt="">
-    <h1>Elige una de estas opciones</h1>
+    <h1>Gestión de Productos</h1>
     <div class="button-container">
         
-        <button onclick="alert('Añadir Producto'); window.location.href = 'menuProductos.php';">&bull; gestion productos</button>
-        <button onclick="alert('Editar Producto'); window.location.href = 'editarProducto.php';">&bull; gestion pedidos</button>
-        <button onclick="alert('Gestionar Stock'); window.location.href = 'gestionProductos.php';">&bull; gestion usuarios</button>
+        <button onclick="alert('Añadir Producto'); window.location.href = 'addProducto.php';">&bull; Añadir Producto</button>
+        <button onclick="alert('Editar Producto'); window.location.href = 'editarProducto.php';">&bull; Editar Producto</button>
+        <button onclick="alert('Gestionar Stock'); window.location.href = 'gestionProductos.php';">&bull; Gestionar Stock</button>
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
     </div>
 </body>

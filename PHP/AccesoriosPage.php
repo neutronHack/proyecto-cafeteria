@@ -133,7 +133,7 @@ session_start();
             <div class="nav-links"> 
                 <li><a href="#">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="cafePage.php" >CAFÉ PQUETES</a></li>
+                        <li><a href="cafePage.php" >Nuestros productos</a></li>
                         <li><a href="ORDENAR.php" > ORDENAR CAFÉ </a></li>
                         <li><a href="AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>

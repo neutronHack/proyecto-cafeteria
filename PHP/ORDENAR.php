@@ -101,7 +101,7 @@
                 <div class="nav-links">
                     <li class="nav-item"><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                         <ul class="dropdown">
-                            <li><a href="../PHP/cafePage.php">CAFÉ PAQUETES</a></li>
+                            <li><a href="../PHP/cafePage.php">Nuestros productos</a></li>
                             <li><a href="#">ORDENAR CAFÉ</a></li>
 
                             <li><a href="../PHP/AccesoriosPage.php">ACCESORIOS</a></li>

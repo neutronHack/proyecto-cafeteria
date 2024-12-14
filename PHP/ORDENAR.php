@@ -192,10 +192,12 @@ while ($row = mysqli_fetch_assoc($result)) {
             <h3>Resumen de la compra</h3>
             <p id="product-list">No has seleccionado productos.</p>
             <p id="total">Total: $0</p>
-            <button hidden id="btn_compra" onclick="simulatePurchase()">Comprar</button>
+            <button hidden id="btn_compra" onclick="Carrito()">Comprar</button>
             <button hidden id="btn_reset" onclick="Reset()">Negar transacción</button>
         </div>
+        
     </div>
+    
 
     <script>
         // Recuperar arrays de PHP a JavaScript
@@ -220,9 +222,17 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             document.getElementById("product-list").innerHTML = productList || "No has seleccionado productos.";
             document.getElementById("total").innerHTML = `Total: $${total}`;
+
+
             document.getElementById("btn_compra").hidden = total === 0;
             document.getElementById("btn_reset").hidden = total === 0;
+
         }
+
+
+
+
+
 
         function Reset() {
             for (let i = 1; i <= productNames.length; i++) {
@@ -233,8 +243,18 @@ while ($row = mysqli_fetch_assoc($result)) {
             document.getElementById("btn_compra").hidden = true;
             document.getElementById("btn_reset").hidden = true;
         }
+
+
+
+
+
+
+
+
+        
     </script>
 
 </body>
+<a href=""></a>
 
 </html>

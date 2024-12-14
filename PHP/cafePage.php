@@ -120,10 +120,10 @@
                 
             </div>
             <div class="nav-links"> 
-                <li><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+                <li><a href="#">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="PHP/cafePage.php" >CAFÉ</a></li>
-                        <li><a href="PHP/AccesoriosPage.php">ACCESORIOS</a></li>
+                        <li><a href="cafePage.php" >CAFÉ</a></li>
+                        <li><a href="AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
                 <li><a href="NosotrosPage.html" class="us">NOSOTROS</a></li>
             </ul>

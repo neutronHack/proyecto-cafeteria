@@ -1,3 +1,14 @@
+<?php
+require '../conexion/conexionBD.php';
+include '../informacion_session.php';
+session_start();
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -125,7 +136,7 @@
                         <li><a href="cafePage.php" >CAFÉ</a></li>
                         <li><a href="AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
-                <li><a href="NosotrosPage.html" class="us">NOSOTROS</a></li>
+                    <li><a href="../NosotrosPage.html" class="us">NOSOTROS</a></li>
             </ul>
             
                 <div class="iconos">
@@ -133,7 +144,7 @@
                         <img src="../Img/carrito.svg" class="iconos">
                     </a>
                     
-                    <a href="../proyecto-cafeteria/perfil.php">
+                    <a href="../perfil.php">
                     
                         <img src="../Img/inicio-sesion.svg" class="iconos">
                     </a>

@@ -1,3 +1,19 @@
+<?php
+require '../conexion/conexionBD.php'; // Incluye tu archivo de conexión a la base de datos.
+include '../informacion_session.php';
+session_start();
+
+// Consulta SQL para obtener los productos
+$query = "SELECT id_producto, nombreProducto, Descripcion, Precio, Zona_origen, StockDisponible FROM producto";
+$result = mysqli_query($conn, $query);
+
+// Verifica si hay productos en la base de datos
+if (!$result) {
+    echo "Error al obtener los productos: " . mysqli_error($conexion);
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -115,9 +131,6 @@
         <nav class="navbar">
             <div class="logo">
                 <img src="../Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
-
-
-                
             </div>
             <div class="nav-links"> 
                 <li><a href="#">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
@@ -125,7 +138,7 @@
                         <li><a href="cafePage.php" >CAFÉ</a></li>
                         <li><a href="AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
-                <li><a href="NosotrosPage.html" class="us">NOSOTROS</a></li>
+                <li><a href="../NosotrosPage.html" class="us">NOSOTROS</a></li>
             </ul>
             
                 <div class="iconos">
@@ -133,8 +146,7 @@
                         <img src="../Img/carrito.svg" class="iconos">
                     </a>
                     
-                    <a href="../proyecto-cafeteria/perfil.php">
-                    
+                    <a href="../perfil.php">
                         <img src="../Img/inicio-sesion.svg" class="iconos">
                     </a>
             
@@ -143,73 +155,39 @@
     <h3>CAFÉ</h3>
     <section class="seccion-productos">
         
-        
-        <!-- Producto individual 1 -->
-        <div id="producto-1" class="producto-individual">
-            <div class="parte-1">
-                <ul>
-                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
-                </ul>
-            </div>
-            <div class="parte-2">
-                <h3 class="titulo-producto">Café Colombiano</h3>
-                <h4 class="precio-viejo-producto">$79.99</h4>
-                <h4 class="product-price">$39.99</h4>
-            </div>
-        </div>
+        <?php
+        // Itera sobre los productos y genera el HTML para cada uno
+        while ($producto = mysqli_fetch_assoc($result)) {
+            // Extrae la información del producto
+            $id = $producto['id_producto'];
+            $nombre = $producto['nombreProducto'];
+            $precio = number_format($producto['Precio'], 2);
+            $descripcion = $producto['Descripcion'];
+            $stock = $producto['StockDisponible'];
+            
+            // Genera el HTML para el producto
+            echo "
+            <div id='producto-$id' class='producto-individual'>
+                <div class='parte-1'>
+                    <ul>
+                        <li><a href='#'><i class='fas fa-shopping-cart'></i></a></li>
+                        <li><a href='#'><i class='fas fa-expand'></i></a></li>
+                    </ul>
+                </div>
+                <div class='parte-2'>
+                    <h3 class='titulo-producto'>$nombre</h3>
+                    <h4 class='product-price'>$$precio</h4>
+                </div>
+            </div>";
+        }
+        ?>
 
-        <!-- Producto individual 2 -->
-        <div id="producto-2" class="producto-individual">
-            <div class="parte-1">
-                <ul>
-                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
-                </ul>
-            </div>
-            <div class="parte-2">
-                <h3 class="titulo-producto">Café Brasil</h3>
-                <h4 class="product-price">$19.99</h4>
-            </div>
-        </div>
-
-        <!-- Producto individual 3 -->
-        <div id="producto-3" class="producto-individual">
-            <div class="parte-1">
-                <ul>
-                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
-                </ul>
-            </div>
-            <div class="parte-2">
-                <h3 class="titulo-producto">Café Premium</h3>
-                <h4 class="precio-viejo-producto">$49.99</h4>
-                <h4 class="product-price">$9.99</h4>
-            </div>
-        </div>
-
-        <!-- Producto individual 4 -->
-        <div id="producto-4" class="producto-individual">
-            <div class="parte-1">
-                <ul>
-                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                    <li><a href="#"><i class="fas fa-expand"></i></a></li>
-                </ul>
-            </div>
-            <div class="parte-2">
-                <h3 class="titulo-producto">Café Italiano</h3>
-                <h4 class="product-price">$29.99</h4>
-            </div>
-        </div>
-
-        
     </section>
-
-
-
-
-    
-
 </body>
 
 </html>
+
+<?php
+// Cierra la conexión a la base de datos
+mysqli_close($conn);
+?>

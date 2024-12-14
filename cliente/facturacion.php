@@ -18,6 +18,17 @@ session_start();
     $ejecutar_consulta = mysqli_query($conn,$sql);
 
      $Id_usuario  =  $_SESSION['IDuser'];
+
+
+     // Consulta SQL
+    $sql = "UPDATE `usuario` SET `metodoPago` = '$pago' WHERE `id_usuario` = $Id_usuario";
+
+    // Ejecutar la consulta
+    if (mysqli_query($conn, $sql)) {
+    echo "Registro actualizado correctamente";
+    } else {
+    echo "Error al actualizar el registro: " . mysqli_error($conexion);
+    }
     if ($ejecutar_consulta) {
         echo "<script> 
         
@@ -28,18 +39,10 @@ session_start();
         </script>";
     }
 
-    // Consulta SQL
-    $sql = "UPDATE `usuario` SET `metodoPago` = '$pago' WHERE `id_usuario` = $Id_usuario";
-
-    // Ejecutar la consulta
-    if (mysqli_query($conexion, $sql)) {
-    echo "Registro actualizado correctamente";
-    } else {
-    echo "Error al actualizar el registro: " . mysqli_error($conexion);
-    }
+    
 
 // Cerrar la conexión
-mysqli_close($conexion);
+mysqli_close($conn);
 
 ?>
 

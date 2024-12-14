@@ -30,7 +30,7 @@ $resultado = mysqli_query($conn, $sql_verificar);
 if (mysqli_num_rows($resultado) > 0) {
     // El correo ya existe
     echo "<script>
-            alert('Error: El correo electrónico ya está registrado.');
+            alert('Error: El correo electrónico no valido. Use otro');
             window.history.back(); // Vuelve a la página anterior
           </script>";
 } else {
@@ -41,7 +41,9 @@ VALUES ('$rol', '$nombre', '$primerApellido', '$segundoApellido', '$correoElectr
     // Ejecutar la consulta
     $ejecucion = mysqli_query($conn, $sql);
     if ($ejecucion) {
-        echo "<script> window.location.href = '../index.html'    </script>";
+        echo "<script> window.location.href = '../index.html' 
+                    alert('Te has registrado');
+        </script>";
     } else {
 
         echo 'NO FUNCIONO';

@@ -1,7 +1,6 @@
 <?php
 
-$id_User   = $_SESSION['IDuser'];
-$Correo_User   = $_SESSION['CorreoUser'];
+
 //RETORNA EL ID DEL USUARIO
 function getIDuser()
 {
@@ -25,20 +24,51 @@ function getDataUser($num1_10)
     $ejecutar_query = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($ejecutar_query, MYSQLI_ASSOC);
 
+    $nombre = $row['nombre'];
+    $apellido1 = $row['PrimerApellido'];
+    $apellido2 = $row['SegundoApellido'];
+    $correo = $row['CorreoElectronico'];
+    $contrasena = $row['contrasena'];
+    $telefono = $row['Telefono'];
+    $adress = $row['Direccion'];
+    $metodo_pago = $row['metodoPago'];
 
     switch ($num1_10) {
         case 1:
             # code...
+            return $nombre;
 
-            
             break;
-        
+
 
         case 2:
-            
+            return $apellido1;
+
             break;
-        default:
-            # code...
+
+
+        case 3:
+            return $apellido2;
+            break;
+
+        case 4:
+            return $correo;
+            break;
+
+        case 5:
+            return $contrasena;
+            break;
+
+        case 6:
+            return $telefono;
+            break;
+
+        case 7:
+            return $adress;
+            break;
+
+        case 8:
+            return $metodo_pago;
             break;
     }
 }

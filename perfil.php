@@ -53,10 +53,11 @@ session_start();
         <div class="profile-info">
             <h2>Información de perfil</h2>
             <div class="info-box" style="margin: 12px;">
-                <p>Nombre:</p>
+                <p>Nombre: <?= getDataUser(1); ?></p>
                 <p>Correo: <?= getCorreoUser(); ?> </p>
-
-                
+                <p>Telefono: <?= getDataUser(6); ?> </p>
+                <p>direccion: <?= getDataUser(7); ?> </p>
+                <p>metodo de pago preferido : <?= getDataUser(8); ?> </p>
             </div>
         </div>
     </main>

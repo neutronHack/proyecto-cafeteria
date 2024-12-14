@@ -193,14 +193,26 @@ while ($row = mysqli_fetch_assoc($result)) {
             <p id="product-list">No has seleccionado productos.</p>
             <p id="total">Total: $0</p>
 
-            <form hidden id="formulario" action="" method="post">
+            <form id="formulario" action="../cliente/facturacion.php" method="post">
 
+                <label for="pago">Metodo de pago</label>
+
+
+                <p> MasterCard <input type="radio"  name="pago" value="MasterCard" id="MasterCard" required></p>
+                <p> VISA<input type="radio"         name="pago" id="VISA" value="VISA" required></p>
+                <p> PAYPAL<input type="radio"       name="pago" id="PAYPAL" value="Paypal" required></p>
+
+
+
+
+                <p>total <input type="number" name="total" id="totalInput" readonly> </p>
+
+                <p>Correo<input type="text" name="correoUser" id="correoUser" require></p>
+                <button hidden id="btn_compra" type="submit">Comprar</button>
                 
-
             </form>
-            <button hidden id="btn_compra" onclick="Carrito()">Comprar</button>
-            <button hidden id="btn_reset" onclick="Reset()">Negar transacción</button>
-        </div>
+            <button type="reset" hidden id="btn_reset" onclick="Reset()">Negar transacción</button>
+           
 
     </div>
 
@@ -229,6 +241,10 @@ while ($row = mysqli_fetch_assoc($result)) {
             document.getElementById("product-list").innerHTML = productList || "No has seleccionado productos.";
             document.getElementById("total").innerHTML = `Total: $${total}`;
 
+            document.getElementById("total").innerText = `Total: $${total}`;
+
+            // Inserta el valor del total en el input oculto
+            document.getElementById("totalInput").value = total;
 
             document.getElementById("btn_compra").hidden = total === 0;
             document.getElementById("btn_reset").hidden = total === 0;
@@ -243,6 +259,12 @@ while ($row = mysqli_fetch_assoc($result)) {
             document.getElementById("total").innerHTML = "Total: $0";
             document.getElementById("btn_compra").hidden = true;
             document.getElementById("btn_reset").hidden = true;
+
+            document.getElementById("total").innerText = `Total: $${total}`;
+
+            // Inserta el valor del total en el input oculto
+            document.getElementById("totalInput").value = total;
+
         }
     </script>
 

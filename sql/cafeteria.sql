@@ -1,153 +1,285 @@
-CREATE DATABASE cafeteria;
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-12-2024 a las 06:22:14
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
-USE cafeteria;
-
-CREATE TABLE clientes (
-    id_cliente INT PRIMARY KEY,
-    nombre VARCHAR(100),
-    direccion VARCHAR(255),
-    telefono VARCHAR(20),
-    email VARCHAR(100)
-);
-
-CREATE TABLE metodopago (
-    id_metodoPago INT PRIMARY KEY,
-    TipoMetodo VARCHAR(50),
-    DetallesPago VARCHAR(200),
-    id_Usuario INT,
-    FOREIGN KEY (id_Usuario) REFERENCES usuario(id_usuario)
-);
-
-CREATE TABLE usuario (
-    id_usuario INT PRIMARY KEY,
-    id_Rol INT,
-    nombre VARCHAR(50),
-    PrimerApellido VARCHAR(50),
-    SegundoApellido VARCHAR(50),
-    CorreoElectronico VARCHAR(50),
-    contrasena VARCHAR(100),
-    Telefono VARCHAR(20),
-    Direccion VARCHAR(200),
-    FOREIGN KEY (id_Rol) REFERENCES roles(id_Rol)
-);
-
-CREATE TABLE roles (
-    id_Rol INT PRIMARY KEY,
-    Rol VARCHAR(50)
-);
-
-CREATE TABLE producto (
-    id_producto INT PRIMARY KEY,
-    nombreProducto VARCHAR(100),
-    Descripcion VARCHAR(500),
-    Precio DECIMAL(10, 2),
-    Zona_origen VARCHAR(100),
-    StockDisponible INT,
-    id_categoria INT,
-    fecha_ingreso DATE,
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
-);
-
-CREATE TABLE categoria (
-    id_categoria INT PRIMARY KEY,
-    nombre_categoria VARCHAR(100)
-);
-
-CREATE TABLE pedido (
-    id_pedido INT PRIMARY KEY,
-    id_usuario INT,
-    id_producto INT,
-    Cantidad_Producto INT,
-    direccionEnvio VARCHAR(200),
-    Total DECIMAL(10, 2),
-    Estado_Pedido VARCHAR(50),
-    FechaPedido DATE,
-    FechaEnviado DATE,
-    metodoPago INT,
-    FechaLlegada DATE,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-    FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
-    FOREIGN KEY (metodoPago) REFERENCES metodopago(id_metodoPago)
-);
-
-CREATE TABLE factura (
-    id_factura INT PRIMARY KEY,
-    id_pedido INT,
-    numero_factura VARCHAR(50),
-    fecha_emision DATE,
-    forma_pago VARCHAR(50),
-    subtotal DECIMAL(10, 2),
-    impuestos DECIMAL(10, 2),
-    Total DECIMAL(10, 2),
-    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido)
-);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
--- Insertar datos en la tabla roles
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-INSERT INTO cafeteria.roles (id_Rol, Rol) 
-VALUES (1, 'Administrador'), (2, 'Cliente');
+--
+-- Base de datos: `cafeteria`
+--
 
+-- --------------------------------------------------------
 
--- Insertar datos en la tabla usuario
+--
+-- Estructura de tabla para la tabla `categoria`
+--
 
-INSERT INTO cafeteria.usuario (id_usuario, id_Rol, nombre, PrimerApellido, SegundoApellido, CorreoElectronico, contrasena, Telefono, Direccion) 
-VALUES (1, 1, 'Jimmy', 'Cabalceta', 'Alpizar', 'jimmy@mail.com', 'jimmy123', '12345678', 'Calle 123, Ciudad Colon');
+CREATE TABLE `categoria` (
+  `id_categoria` int(11) NOT NULL,
+  `nombre_categoria` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO cafeteria.usuario (id_usuario, id_Rol, nombre, PrimerApellido, SegundoApellido, CorreoElectronico, contrasena, Telefono, Direccion) 
-VALUES (2, 2, 'Ulfet', 'Arac', 'Arac', 'ulfet@mail.com', 'ulfet123', '80804040', 'Calle 5, Calle blancos');
+--
+-- Volcado de datos para la tabla `categoria`
+--
 
-INSERT INTO cafeteria.usuario (id_usuario, id_Rol, nombre, PrimerApellido, SegundoApellido, CorreoElectronico, contrasena, Telefono, Direccion) 
-VALUES (3, 1, 'Daniela', 'Fallas', 'Porras', 'Daniela@mail.com', 'daniela123', '50506060', 'Calle Santos, Perez Zeledon');
-
-INSERT INTO cafeteria.usuario (id_usuario, id_Rol, nombre, PrimerApellido, SegundoApellido, CorreoElectronico, contrasena, Telefono, Direccion) 
-VALUES (4, 2, 'Gabriel', 'Ruiz', 'Mendez', 'Gabo@mail.com', 'gabo123', '70709090', 'Calle cruz, Desamparados');
-
-
-INSERT INTO cafeteria.categoria (id_categoria, nombre_categoria) 
-VALUES 
-(1, 'Cafe'), 
+INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
+(1, 'Cafe'),
 (2, 'Accesorios');
 
+-- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `factura`
+--
 
--- Insertar Productos
+CREATE TABLE `factura` (
+  `id_factura` int(11) NOT NULL,
+  `id_pedido` int(11) DEFAULT NULL,
+  `numero_factura` varchar(50) DEFAULT NULL,
+  `fecha_emision` date DEFAULT NULL,
+  `forma_pago` varchar(50) DEFAULT NULL,
+  `subtotal` decimal(10,2) DEFAULT NULL,
+  `impuestos` decimal(10,2) DEFAULT NULL,
+  `Total` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO cafeteria.producto (id_producto, nombreProducto, Descripcion, Precio, StockDisponible, id_productor, id_categoria, fecha_ingreso, Zona_origen) VALUES 
-(1, 'Cafe Don Lucas Geisha', 'Cafe Don Lucas Geisha, 450 gramos', 15.00, 100, 1, 1, CURDATE(), 'Los Santos'),
-(3, 'Cafe Haug', 'Cafe Haug, 350 gramos', 12.00, 100, 1, 1, CURDATE(), 'Los Santos'),
-(4, 'Cafe Quetzal', 'Cafe Quetzal, 500 gramos', 11.50, 100, 1, 1, CURDATE(), 'Los Santos'),
-(5, 'Cafe reserva', 'Cafe reserva, 340 gramos', 15.00, 100, 1, 1, CURDATE(), 'Los Santos'),
-(6, 'Cafe 1820 Clasico', 'Cafe 1820 Clasico, 500 gramos', 8.50, 100, 1, 1, CURDATE(), 'Los Santos'),
-(7, 'Cafe Leyenda Clasico', 'Cafe Leyenda Clasico, 500 gramos', 5.50, 100, 1, 1, CURDATE(), 'Los Santos'),
-(8, 'Termo cafe', 'Termo cafe, Acero inox, 1 litro', 12.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(9, 'Prensa francesa', 'Prensa francesa, 600ml', 15.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(10, 'Juego de tazas', 'Juego de tazas', 10.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(11, 'Espumadores', 'Espumadores', 10.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(12, 'Chorreador', 'Chorreador', 8.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(13, 'CoffeMaker', 'CoffeMaker', 30.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(14, 'Hervidor', 'Hervidor', 20.00, 50, 1, 2, CURDATE(), 'Los Santos'),
-(15, 'Filtros cafe', 'Filtros cafe', 2.50, 50, 1, 2, CURDATE(), 'Los Santos');
+--
+-- Volcado de datos para la tabla `factura`
+--
 
+INSERT INTO `factura` (`id_factura`, `id_pedido`, `numero_factura`, `fecha_emision`, `forma_pago`, `subtotal`, `impuestos`, `Total`) VALUES
+(1, 1, 'F-001', '2024-01-10', 'PayPal', 30.00, 1.00, 31.00);
 
+-- --------------------------------------------------------
 
--- Insertar MetodoPago
+--
+-- Estructura de tabla para la tabla `pedido`
+--
 
-INSERT INTO cafeteria.metodopago 
-(id_metodoPago, TipoMetodo, DetallesPago, id_Usuario) 
-VALUES (1, 'PayPal', 'paypal@example.com', 1);
+CREATE TABLE `pedido` (
+  `id_pedido` int(11) NOT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  `Cantidad_Producto` int(11) DEFAULT NULL,
+  `direccionEnvio` varchar(200) DEFAULT NULL,
+  `Total` decimal(10,2) DEFAULT NULL,
+  `Estado_Pedido` varchar(50) DEFAULT NULL,
+  `FechaPedido` date DEFAULT NULL,
+  `FechaEnviado` date DEFAULT NULL,
+  `FechaLlegada` date DEFAULT NULL,
+  `metodoPago` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `pedido`
+--
 
+INSERT INTO `pedido` (`id_pedido`, `id_usuario`, `id_producto`, `Cantidad_Producto`, `direccionEnvio`, `Total`, `Estado_Pedido`, `FechaPedido`, `FechaEnviado`, `FechaLlegada`, `metodoPago`) VALUES
+(1, 1, 1, 2, 'Calle 123, Ciudad Colon', 30.00, 'Procesado', '2024-01-10', '2024-01-11', '2024-01-15', 1);
 
--- Insertar pedido
+-- --------------------------------------------------------
 
-INSERT INTO cafeteria.pedido (id_pedido, id_usuario, id_producto, Cantidad_Producto, direccionEnvio, metodoPago, Total, Estado_Pedido, FechaPedido, FechaEnviado, FechaLlegada) 
-VALUES 
-(1, 1, 1, 2, 'Calle 123, Ciudad Colon', 'PayPal', 30.00, 'Procesado', '2024-01-10', '2024-01-11', '2024-01-15'), (2, 2, 2, 1, 'Calle 5, Calle blancos', 'PayPal', 10.00, 'Enviado', '2024-01-12
-', '2024-01-13', '2024-01-17');
+--
+-- Estructura de tabla para la tabla `producto`
+--
 
+CREATE TABLE `producto` (
+  `id_producto` int(11) NOT NULL,
+  `nombreProducto` varchar(100) DEFAULT NULL,
+  `Descripcion` varchar(500) DEFAULT NULL,
+  `Precio` decimal(10,2) DEFAULT NULL,
+  `Zona_origen` varchar(100) DEFAULT NULL,
+  `StockDisponible` int(11) DEFAULT NULL,
+  `id_categoria` int(11) DEFAULT NULL,
+  `fecha_ingreso` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
 
--- insertar factura
+INSERT INTO `producto` (`id_producto`, `nombreProducto`, `Descripcion`, `Precio`, `Zona_origen`, `StockDisponible`, `id_categoria`, `fecha_ingreso`) VALUES
+(1, 'Cafe Don Lucas Geisha', 'Cafe Don Lucas Geisha, 450 gramos', 15.00, 'Los Santos', 100, 1, '2024-12-13');
 
-INSERT INTO cafeteria.factura (id_factura, id_pedido, numero_factura, fecha_emision, forma_pago, subtotal, impuestos, Total) VALUES (1, 1, 'F-001', '2024-01-10', CURDATE(), 30.00, 1.00, 31.00);
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id_Rol` int(11) NOT NULL,
+  `Rol` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id_Rol`, `Rol`) VALUES
+(1, 'Administrador'),
+(2, 'Cliente');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `id_Rol` int(11) DEFAULT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `PrimerApellido` varchar(50) DEFAULT NULL,
+  `SegundoApellido` varchar(50) DEFAULT NULL,
+  `CorreoElectronico` varchar(50) DEFAULT NULL,
+  `contrasena` varchar(100) DEFAULT NULL,
+  `Telefono` varchar(20) DEFAULT NULL,
+  `Direccion` varchar(200) DEFAULT NULL,
+  `metodoPago` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `id_Rol`, `nombre`, `PrimerApellido`, `SegundoApellido`, `CorreoElectronico`, `contrasena`, `Telefono`, `Direccion`, `metodoPago`) VALUES
+(1, 1, 'Jimmy', 'Cabalceta', 'Alpizar', 'jimmy@mail.com', 'jimmy123', '12345678', 'Calle 123, Ciudad Colon', ''),
+(2, 2, 'Ulfet', 'Arac', 'Arac', 'ulfet@mail.com', 'ulfet123', '80804040', 'Calle 5, Calle blancos', ''),
+(3, 2, 'jose', 'benavaide', 'sadd', 'dpoawmfa@gmail.copm', '1234', '9999', 'dasdwda', NULL),
+(4, 2, 'jose', 'benavaide', 'sadd', 'dpoawmfa@gmail.copm', '1234', '9999', 'dasdwda', NULL);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `factura`
+--
+ALTER TABLE `factura`
+  ADD PRIMARY KEY (`id_factura`),
+  ADD KEY `id_pedido` (`id_pedido`);
+
+--
+-- Indices de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`id_pedido`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `metodoPago` (`metodoPago`);
+
+--
+-- Indices de la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_categoria` (`id_categoria`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id_Rol`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `id_Rol` (`id_Rol`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `factura`
+--
+ALTER TABLE `factura`
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `factura`
+--
+ALTER TABLE `factura`
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`);
+
+--
+-- Filtros para la tabla `pedido`
+--
+ALTER TABLE `pedido`
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
+  ADD CONSTRAINT `pedido_ibfk_3` FOREIGN KEY (`metodoPago`) REFERENCES `metodopago` (`id_metodoPago`);
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_Rol`) REFERENCES `roles` (`id_Rol`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

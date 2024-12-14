@@ -20,54 +20,45 @@
 
 <body>
 
-    
-    <form action="">
-        <section class="RegistroUser">
+    <form action="../proyecto-cafeteria/conexion/Registro.php" method="POST">
+        <h2>Formulario de Registro</h2>
 
-            <h2 class="tituloRegistro">Registro de Usuario</h2>
+        <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
+        </div>
 
+        <div class="form-field">
+            <label for="PrimerApellido">Primer Apellido</label>
+            <input type="text" id="PrimerApellido" name="PrimerApellido" placeholder="Escribe tu primer apellido" required>
+        </div>
 
-            <div class="form-field col-lg-6">
-                <label class="label" for="nombre">Nombre</label>
-                <input type="text" id="nombre" class="input-text js-input" required><br><br>
-            </div>
+        <div class="form-field">
+            <label for="SegundoApellido">Segundo Apellido</label>
+            <input type="text" id="SegundoApellido" name="SegundoApellido" placeholder="Escribe tu segundo apellido" required>
+        </div>
 
-            <div class="form-field col-lg-6">
-                <label class="label" for="PrimerApellido">PrimerApellido</label>
-                <input type="text" id="PrimerApellido" class="input-text js-input" required><br><br>
-            </div>
+        <div class="form-field">
+            <label for="CorreoElectronico">Correo Electrónico</label>
+            <input type="email" id="CorreoElectronico" name="CorreoElectronico" placeholder="Escribe tu correo electrónico" required>
+        </div>
 
-            <div class="form-field col-lg-6">
-                <label class="label" for="SegundoApellido">SegundoApellido</label>
-                <input type="text" id="SegundoApellido" class="input-text js-input" required><br><br>
-            </div>
+        <div class="form-field">
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" placeholder="Escribe tu contraseña" required>
+        </div>
 
-            <div class="form-field col-lg-6">
-                <label class="label" for="CorreoElectronico">CorreoElectronico</label>
-                <input type="text" id="CorreoElectronico" class="input-text js-input" required><br><br>
-            </div>
+        <div class="form-field">
+            <label for="Telefono">Teléfono</label>
+            <input type="text" id="Telefono" name="Telefono" placeholder="Escribe tu número de teléfono" required>
+        </div>
 
-            <div class="form-field col-lg-6">
-                <label class="label" for="contraseña">Contraseña</label>
-                <input type="password" id="contraseña" class="input-text js-input" required><br><br>
-            </div>
+        <div class="form-field">
+            <label for="Direccion">Dirección</label>
+            <input type="text" id="Direccion" name="Direccion" placeholder="Escribe tu dirección" required>
+        </div>
 
-            <div class="form-field col-lg-6">
-                <label class="label" for="nombre">Teléfono</label>
-                <input type="text" id="Telefono" class="input-text js-input" required><br><br>
-            </div>
-
-            <div class="form-field col-lg-6">
-                <label class="label" for="nombre">Dirección</label>
-                <input type="text" id="Direccion" class="input-text js-input" required><br><br>
-            </div>
-
-            <div class="form-field col-lg-6">
-                <button class="registerBtn" value="register" type="register">Registrarse</button>
-            </div>
-
-
-        </section>
+        <input type="submit" class="submit-btn">Enviar</input>
     </form>
 </body>
 

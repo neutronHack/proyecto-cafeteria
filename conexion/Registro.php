@@ -1,45 +1,57 @@
 <?php
-
-include './conexion/conexionBD.php';
-$id = $_GET['id'];
-// Valida que existe el name 'register' en el submit del form
-if (isset($_POST["register"])) {
-
-    // Captura cada campo del form
-    $username = mysqli_real_escape_string($conexion, $_POST["username"]);
-    $email = mysqli_real_escape_string($conexion, $_POST["email"]);
-    $fechaNacimiento = mysqli_real_escape_string($conexion, $_POST["fechaNacimiento"]);
-    $identificacion = mysqli_real_escape_string($conexion, $_POST["identificacion"]);
-    $rol = mysqli_real_escape_string($conexion, $_POST["rol"]);
-
-    $validRoles = ['1', '2', '3', '4'];
-    if (!in_array($rol, $validRoles)) {
-        die("Error: Rol inválido seleccionado.");
-    }
-
-    // Construcción de la consulta
-     $query = "INSERT INTO usuario (`Nombre`, `Correo`, `Fecha_Nacimiento`, `Identificacion`, `Id_Rol`, `Contraseña`)
-    VALUES ('$username' , '$email' , '$fechaNacimiento' , '$identificacion', '$rol', 'Ulacit1234')";
+require 'conexionBD.php';
 
 
-    //selecciona la base de datos y el siguiente parametro hace la consulta
-    $ejecutar = mysqli_query($conexion, $query);
-    
-    if ($ejecutar) {
-        echo '<script>
-        alert("Usuario almacenado exitosamente");
-        window.location.href = "dashboard.php?USUARIO=' . urlencode($id) . '";
-      </script>';
 
+// Capturar y limpiar los datos del formulario
+$nombre =  $_POST['nombre'];
+$primerApellido = $_POST['PrimerApellido'];
+$segundoApellido =  $_POST['SegundoApellido'];
+$correoElectronico =  $_POST['CorreoElectronico'];
+$contrasena =  $_POST['contraseña'];
+$telefono =  $_POST['Telefono'];
+$direccion =  $_POST['Direccion'];
+$rol = 2; // Rol predeterminado: Cliente
+
+
+
+echo $nombre . '<br>';
+echo $primerApellido . '<br>';
+echo $segundoApellido . '<br>';
+echo $correoElectronico . '<br>';
+echo $contrasena . '<br>';
+echo $telefono . '<br>';
+echo $direccion . '<br>';
+echo $rol . '<br>';
+
+// Verificar si el correo ya existe en la base de datos
+$sql_verificar = "SELECT CorreoElectronico FROM usuario WHERE CorreoElectronico = '$correoElectronico'";
+$resultado = mysqli_query($conn, $sql_verificar);
+if (mysqli_num_rows($resultado) > 0) {
+    // El correo ya existe
+    echo "<script>
+            alert('Error: El correo electrónico ya está registrado.');
+            window.history.back(); // Vuelve a la página anterior
+          </script>";
+} else {
+    // SQL para insertar los datos
+    $sql = "INSERT INTO usuario (id_Rol, nombre, PrimerApellido, SegundoApellido, CorreoElectronico, contrasena, Telefono, Direccion) 
+VALUES ('$rol', '$nombre', '$primerApellido', '$segundoApellido', '$correoElectronico', '$contrasena', '$telefono', '$direccion')";
+
+    // Ejecutar la consulta
+    $ejecucion = mysqli_query($conn, $sql);
+    if ($ejecucion) {
+        echo "<script> window.location.href = '../index.html'    </script>";
     } else {
-        echo "Error al almacenar los datos: " . mysqli_error($conexion);
+
+        echo 'NO FUNCIONO';
     }
-    // Validación adicional para asegurar que el rol es válido
-
-
-
-
-    mysqli_close($conexion);
 }
 
-?>
+
+
+
+
+
+// Cerrar la conexión
+$conn->close();

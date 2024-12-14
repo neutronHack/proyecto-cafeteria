@@ -1,3 +1,41 @@
+<?php
+require '../conexion/conexionBD.php'; // Incluye tu archivo de conexión a la base de datos.
+include '../informacion_session.php';
+session_start();
+
+// Consulta SQL para obtener los productos
+$query = "SELECT id_producto, nombreProducto, Precio FROM producto";
+$result = mysqli_query($conn, $query);
+
+// Verifica si hay productos en la base de datos
+if (!$result) {
+    echo "Error al obtener los productos: " . mysqli_error($conexion);
+    exit;
+}
+
+
+// Crear arrays de productos en JavaScript
+$productNames = [];
+$productPrices = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $productNames[] = $row['nombreProducto'];
+    $productPrices[] = $row['Precio'];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -133,41 +171,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Cafe Amargo</td>
-                    <td>$5</td>
-                    <td><input type="number" class="input-quantity" id="product1" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>Cafe Natural</td>
-                    <td>$6</td>
-                    <td><input type="number" class="input-quantity" id="product2" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>Cafe de Caramelo</td>
-                    <td>$7</td>
-                    <td><input type="number" class="input-quantity" id="product3" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>Cafe De Chocolate</td>
-                    <td>$8</td>
-                    <td><input type="number" class="input-quantity" id="product4" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>Cafe Negro</td>
-                    <td>$5</td>
-                    <td><input type="number" class="input-quantity" id="product5" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>Cafe Colombiano</td>
-                    <td>$9</td>
-                    <td><input type="number" class="input-quantity" id="product6" min="0" value="0"></td>
-                </tr>
-                <tr>
-                    <td>Cafe Expreso</td>
-                    <td>$10</td>
-                    <td><input type="number" class="input-quantity" id="product7" min="0" value="0"></td>
-                </tr>
+                <?php
+                mysqli_data_seek($result, 0); // Reiniciar el puntero de resultados
+                $index = 1;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>{$row['nombreProducto']}</td>";
+                    echo "<td>\${$row['Precio']}</td>";
+                    echo "<td><input type='number' class='input-quantity' id='product{$index}' min='0' value='0'></td>";
+                    echo "</tr>";
+                    $index++;
+                }
+                ?>
             </tbody>
         </table>
 
@@ -178,24 +193,20 @@
             <p id="product-list">No has seleccionado productos.</p>
             <p id="total">Total: $0</p>
             <button hidden id="btn_compra" onclick="simulatePurchase()">Comprar</button>
-            <button hidden id="btn_reset" onclick="Reset()">negar transaccion</button>
-
+            <button hidden id="btn_reset" onclick="Reset()">Negar transacción</button>
         </div>
     </div>
 
     <script>
+        // Recuperar arrays de PHP a JavaScript
+        let productNames = <?php echo json_encode($productNames); ?>;
+        let productPrices = <?php echo json_encode($productPrices); ?>;
+
         function simulatePurchase() {
-            let productNames = ["Cafe Amargo", "Cafe Natural", "Cafe de Caramelo", "Cafe De Chocolate", "Cafe Negro", "Cafe Colombiano", "Cafe Expreso"];
-            let productPrices = [5, 6, 7, 8, 5, 9, 10];
-            let productQuantities = [
-                document.getElementById("product1").value,
-                document.getElementById("product2").value,
-                document.getElementById("product3").value,
-                document.getElementById("product4").value,
-                document.getElementById("product5").value,
-                document.getElementById("product6").value,
-                document.getElementById("product7").value
-            ];
+            let productQuantities = [];
+            for (let i = 1; i <= productNames.length; i++) {
+                productQuantities.push(document.getElementById(`product${i}`).value);
+            }
 
             let productList = "";
             let total = 0;
@@ -207,51 +218,18 @@
                 }
             }
 
-            if (productList === "") {
-                document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
-            } else {
-                document.getElementById("product-list").innerHTML = productList;
-            }
-
+            document.getElementById("product-list").innerHTML = productList || "No has seleccionado productos.";
             document.getElementById("total").innerHTML = `Total: $${total}`;
-
-            document.getElementById("btn_compra").hidden = false;
-            document.getElementById("btn_reset").hidden = false;
+            document.getElementById("btn_compra").hidden = total === 0;
+            document.getElementById("btn_reset").hidden = total === 0;
         }
 
-
         function Reset() {
-          
-            let productNames = ["Cafe Amargo", "Cafe Natural", "Cafe de Caramelo", "Cafe De Chocolate", "Cafe Negro", "Cafe Colombiano", "Cafe Expreso"];
-            let productPrices = [5, 6, 7, 8, 5, 9, 10];
-            let productQuantities = [
-                document.getElementById("product1").value = 0,
-                document.getElementById("product2").value = 0,
-                document.getElementById("product3").value = 0,
-                document.getElementById("product4").value = 0,
-                document.getElementById("product5").value = 0,
-                document.getElementById("product6").value = 0,
-                document.getElementById("product7").value = 0
-            ];
-            let productList = "";
-            let total = 0;
-
-            for (let i = 0; i < productQuantities.length; i++) {
-                if (productQuantities[i] > 0) {
-                    productList += `${productQuantities[i]} x ${productNames[i]} - $${productPrices[i]} cada uno<br>`;
-                    total += productQuantities[i] * productPrices[i];
-                }
+            for (let i = 1; i <= productNames.length; i++) {
+                document.getElementById(`product${i}`).value = 0;
             }
-
-            if (productList === "") {
-                document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
-            } else {
-                document.getElementById("product-list").innerHTML = productList;
-            }
-
-            document.getElementById("total").innerHTML = `Total: $${total}`;
-            
-
+            document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
+            document.getElementById("total").innerHTML = "Total: $0";
             document.getElementById("btn_compra").hidden = true;
             document.getElementById("btn_reset").hidden = true;
         }

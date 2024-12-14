@@ -35,7 +35,7 @@
                         <img src="../proyecto-cafeteria/Img/carrito.svg" class="iconos">
                     </a>
                     
-                    <a href="../proyecto-cafeteria/perfil.html">
+                    <a href="../proyecto-cafeteria/perfil.php">
                     
                         <img src="../proyecto-cafeteria/Img/inicio-sesion.svg" class="iconos">
                     </a>

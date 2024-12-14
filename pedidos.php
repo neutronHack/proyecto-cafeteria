@@ -21,10 +21,10 @@
     <main>
         <h1>Su perfil de Tierra del Café</h1>
         <div class="button-container">
-            <a href="perfil.html" class="button">
+            <a href="perfil.php" class="button">
                 <button>Información de perfil</button>
             </a>
-            <a href="direcciones.html" class="button">
+            <a href="direcciones.php" class="button">
                 <button>Ver Direcciones</button>
             </a>
             <button class="active">Pedidos</button>

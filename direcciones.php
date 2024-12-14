@@ -21,11 +21,11 @@
     <main>
         <h1>Su perfil de tierra del café</h1>
         <div class="button-container">
-            <a href="perfil.html">
+            <a href="perfil.php">
                 <button>Información de perfil</button>
             </a>
             <button class="active">Ver Direcciones</button>
-            <a href="pedidos.html">
+            <a href="pedidos.php">
             <button>Pedidos</button>
         </a>
         <button onclick="window.location.href = 'index.html';" class="logout">Cerrar Sesión</button>

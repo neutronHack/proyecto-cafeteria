@@ -103,22 +103,22 @@ header {
 }
 
 .container #slider-img1 {
-    background-image: url(/Img/GranoCafeSlider1.jpg);
+    background-image: url(../../proyecto-cafeteria/Img/GranoCafeSlider1.jpg);
     background-position: center;
 }
 
 .container #slider-img2 {
-    background: url(/Img/TazasCafeSlider2.jpg);
+    background: url(../../proyecto-cafeteria/Img/TazasCafeSlider2.jpg);
     background-position: center;
 }
 
 .container #slider-img3 {
-    background: url(/Img/prensaFrancesaSlider3.jpg);
+    background: url( ../../proyecto-cafeteria/Img/prensaFrancesaSlider3.jpg);
     background-position: center;
 }
 
 .container #slider-img4 {
-    background: url(/Img/chorreadorCafeSlider4.jpg);
+    background: url(../../proyecto-cafeteria/Img/chorreadorCafeSlider4.jpg);
     background-position: center;
 }
 

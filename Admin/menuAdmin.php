@@ -67,8 +67,10 @@ session_start();
         
         <button onclick="alert('Añadir Producto'); window.location.href = 'menuProductos.php';">&bull; gestion productos</button>
         <button onclick="alert('Editar Producto'); window.location.href = 'editarProducto.php';">&bull; gestion pedidos</button>
-        <button onclick="alert('Gestionar Stock'); window.location.href = 'gestionProductos.php';">&bull; gestion usuarios</button>
+        <button onclick="alert('Gestionar Stock'); window.location.href = 'users.php';">&bull;usuarios del sistema</button>
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
+
+        <a href="../index.html">Cerrar session</a>
     </div>
 </body>
 </html>

@@ -78,37 +78,47 @@ if (isset($_GET['id_producto'])) {
 
 <body>
 <a href="menuAdmin.php">Volver</a>
-    <h2>Lista de Productos</h2>
+    <h2>Lista de Usuarios</h2>
 
     <table>
         <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Zona de Origen</th>
-            <th>Stock</th>
-            <th>Fecha de Ingreso</th>
-            <th>Acciones</th>
+            <th>Correo</th>
+            <th>rol</th>
+            <th>telefono</th>
+            <th>Direccion</th>
+            <th>Metodo de pago</th>
+            
         </tr>
 
         <?php
         // Consulta para obtener los productos
-        $sql = "SELECT * FROM producto";
+        $sql = "SELECT * FROM usuario";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             // Mostrar los datos en una tabla
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row['id_producto'] . "</td>";
-                echo "<td>" . $row['nombreProducto'] . "</td>";
-                echo "<td>" . $row['Descripcion'] . "</td>";
-                echo "<td>" . $row['Precio'] . "</td>";
-                echo "<td>" . $row['Zona_origen'] . "</td>";
-                echo "<td>" . $row['StockDisponible'] . "</td>";
-                echo "<td>" . $row['fecha_ingreso'] . "</td>";
-                echo "<td><a href='editarProducto2.php?id=" . $row['id_producto'] . "'>Editar</a></td>";
+                echo "<td>" . $row['id_usuario'] . "</td>";
+                echo "<td>" . $row['nombre'] . "</td>";
+                echo "<td>" . $row['CorreoElectronico'] . "</td>";
+
+                if($row['id_Rol'] == 1){
+                    echo "<td>" . 'Administrador' . "</td>";
+
+                }else{
+                    echo "<td>" . 'Cliente' . "</td>";
+                }
+               
+
+
+
+                echo "<td>" . $row['Telefono'] . "</td>";
+                echo "<td>" . $row['Direccion'] . "</td>";
+                echo "<td>" . $row['metodoPago'] . "</td>";
+                
                 echo "</tr>";
             }
         } else {

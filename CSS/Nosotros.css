@@ -1,9 +1,21 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 25px;
 }
 
+/* Body Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("/Img/Granos de cafe.jpg") no-repeat center center/cover;
+    color: #333;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Button Container */
 .button-container {
     display: flex;
     justify-content: center;
@@ -17,7 +29,7 @@
     border-radius: 5px;
     background: white;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button-container button.active,
@@ -29,37 +41,19 @@
 .button-container button:hover {
     background: #4e342e;
     color: white;
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
 
-.card-body
-{
+/* Card Body */
+.card-body {
     text-align: center;
 }
 
-body {
-
-    font-family: Arial, Helvetica, sans-serif;
-    background: url("/Img/Granos\ de\ cafe.jpg") no-repeat center center/conver;
-    color:#333;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.header-top {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-}
-
+/* Header Section */
 header {
     width: 100%;
     background: linear-gradient(to right, #945B30, #DDD4CD);
-
-}
-
-.nav-links {
-    font-weight: 700 !important
+    padding: 20px 0;
 }
 
 .navbar {
@@ -69,32 +63,37 @@ header {
     padding: 10px 20px;
 }
 
+.nav-links {
+    font-weight: 700;
+}
+
 .logo img {
     height: 100px;
 }
 
+/* Iconos */
 .iconos {
     display: flex;
     gap: 2.5px;
     height: 55px;
     padding: 7.5px;
-
 }
 
-.container{
+/* Slider Section */
+.container {
     position: relative;
     margin-top: 7vh;
 }
 
-.container .wrapper{
-    width: 100vh;
+.container .wrapper {
+    width: 100%;
     height: 60vh;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
     margin: 5rem auto;
     overflow: hidden;
 }
 
-.container .wrapper-holder{
+.container .wrapper-holder {
     display: grid;
     grid-template-columns: repeat(4, 100%);
     height: 100%;
@@ -102,33 +101,13 @@ header {
     animation: slider 30s ease-in-out infinite alternate;
 }
 
-.container #slider-img1 {
-    background-image: url(../../proyecto-cafeteria/Img/GranoCafeSlider1.jpg);
-    background-position: center;
-}
-
-.container #slider-img2 {
-    background: url(../../proyecto-cafeteria/Img/TazasCafeSlider2.jpg);
-    background-position: center;
-}
-
-.container #slider-img3 {
-    background: url( ../../proyecto-cafeteria/Img/prensaFrancesaSlider3.jpg);
-    background-position: center;
-}
-
+.container #slider-img1, 
+.container #slider-img2, 
+.container #slider-img3, 
 .container #slider-img4 {
-    background: url(../../proyecto-cafeteria/Img/chorreadorCafeSlider4.jpg);
     background-position: center;
-}
-
-.container .button-holder .button {
-    background-color: white;
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    display: inline-block;
-    margin: .3rem;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container .button-holder {
@@ -137,24 +116,25 @@ header {
     bottom: 0%;
 }
 
-.button:hover {
-    box-shadow: #333;
+.container .button-holder .button {
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: .3rem;
 }
 
-@keyframes slider{
-    0%{transform: translateX(0%);}
-    10%{transform: translateX(-100%);}
-    20%{transform: translateX(-100%);}
-    30%{transform: translateX(-200%);}
-    40%{transform: translateX(-200%);}
-    50%{transform: translateX(-200%);}
-    60%{transform: translateX(-300%);}
-    70%{transform: translateX(-300%);}
-    80%{transform: translateX(-300%);}
-    90%{transform: translateX(0%);}
-    100%{transform: translateX(0%);}
+/* Keyframes for Slider */
+@keyframes slider {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
 }
-    
+
+/* Coffee Section */
 .coffee {
     padding: 50px;
     background-color: #DDD4CD;
@@ -164,17 +144,16 @@ header {
 }
 
 .coffee-content {
-    font-size: 30px;
+    font-size: 1.875rem; /* 30px */
     line-height: 1.5;
     color: #7f4f2a;
     padding: 0 20%;
     margin-bottom: 30px;
     font-family: 'Arial', sans-serif;
-    text-align: center;
 }
 
 .txt-p {
-    font-size: 14px;
+    font-size: 0.875rem; /* 14px */
     color: #221e1e;
     margin-bottom: 10px;
     line-height: 1.6;
@@ -182,8 +161,8 @@ header {
 
 .coffee-group {
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 40px;
@@ -193,7 +172,6 @@ header {
     width: 250px;
     border-radius: 5px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    align-items:normal;
 }
 
 .coffee-1 img:hover {
@@ -201,20 +179,13 @@ header {
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-.coffee-img {
-    position: relative; /* Cambié de absolute a relative para mantener mejor alineación */
-    margin: 2px auto; /* Centra la imagen horizontalmente */
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+/* Back to Top Button */
 .btn-back-to-top {
     display: inline-block;
     padding: 12px 25px;
     font-size: 16px;
     color: white;
-    background-color: #e6bf99;
+    background-color: #91663c;
     text-decoration: none;
     border-radius: 5px;
     border: none;

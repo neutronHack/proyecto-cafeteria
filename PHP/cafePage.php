@@ -170,8 +170,7 @@ if (!$result) {
             <div id='producto-$id' class='producto-individual'>
                 <div class='parte-1'>
                     <ul>
-                        <li><a href='#'><i class='fas fa-shopping-cart'></i></a></li>
-                        <li><a href='#'><i class='fas fa-expand'></i></a></li>
+                        
                     </ul>
                 </div>
                 <div class='parte-2'>
@@ -182,6 +181,88 @@ if (!$result) {
         }
         ?>
 
+            <!-- Producto individual 1 -->
+            <div id="producto-1" class="producto-individual">
+            <div class="parte-1">
+                <ul>
+                    <img width="250" src="../Img/Cafes/cafe 1820.png" alt="">
+                </ul>
+            </div>
+            <div class="parte-2">
+                <h3 class="titulo-producto">Café 1820 clasico</h3>
+                <h4 class="precio-viejo-producto">$79.99</h4>
+                <h4 class="product-price">$39.99</h4>
+            </div>
+        </div>
+
+        <!-- Producto individual 2 -->
+        <div id="producto-2" class="producto-individual">
+            <div class="parte-1">
+                <ul>
+                    <img width="250" src="../Img/Cafes/cafe leyenda.webp" alt="">
+                </ul>
+            </div>
+            <div class="parte-2">
+                <h3 class="titulo-producto">Café leyenda 250g</h3>
+                <h4 class="product-price">$19.99</h4>
+            </div>
+        </div>
+
+        <!-- Producto individual 3 -->
+        <div id="producto-3" class="producto-individual">
+            <div class="parte-1">
+                <ul>
+                    <img width="250" src="../Img/Cafes/CafeDonLucas450.png" alt="">
+                </ul>
+            </div>
+            <div class="parte-2">
+                <h3 class="titulo-producto">Café Don Lucas 450g</h3>
+                <h4 class="precio-viejo-producto">$49.99</h4>
+                <h4 class="product-price">$9.99</h4>
+            </div>
+        </div>
+
+        <!-- Producto individual 4 -->
+        <div id="producto-4" class="producto-individual">
+            <div class="parte-1">
+                <ul>
+                   <img width="125" src="../Img/Cafes/CafeHaug350g.png" alt="">
+                </ul>
+            </div>
+            <div class="parte-2">
+                <h3 class="titulo-producto">Café Haug 350g</h3>
+                <h4 class="product-price">$29.99</h4>
+            </div>
+        </div>
+
+
+          <!-- Producto individual 5 -->
+          <div id="producto-4" class="producto-individual">
+            <div class="parte-1">
+                <ul>
+                   <img  width="250" src="../Img/Cafes/CafeQuetzal500g.png" alt="">
+                </ul>
+            </div>
+            <div class="parte-2">
+                <h3 class="titulo-producto">Café Quetzal 500g</h3>
+                <h4 class="product-price">$29.99</h4>
+            </div>
+        </div>
+
+         <!-- Producto individual 6 -->
+         <div id="producto-4" class="producto-individual">
+            <div class="parte-1">
+                <ul>
+                   <img  width="300" src="../Img/Cafes/cafe_reserva-removebg-preview.png" alt="">
+                </ul>
+            </div>
+            <div class="parte-2">
+                <h3 class="titulo-producto">Café reserva 500g</h3>
+                <h4 class="product-price">$29.99</h4>
+            </div>
+        </div>
+
+        
     </section>
 </body>
 

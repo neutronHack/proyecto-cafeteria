@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <link rel="stylesheet" href="CSS/editproduct.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/logo.jpg" alt="Tierra del Café" />
+               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">TIENDA</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="#"><img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/inicio-sesion.svg" alt="User Icon"></a>
+            </div>
+        </div>
+    </header>
+   
+   
+    <h2>Editar Producto</h2>
+    <form action="PHP/edit_producto.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id_producto" value="1"> 
+
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" name="nombre" id="nombre" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" step="0.01" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" required></textarea>
+
+        <label for="categoria">Categoría:</label>
+        <input type="text" name="categoria" id="categoria" required>
+
+        <label for="imagen">Imagen:</label>
+        <input type="file" name="imagen" id="imagen">
+
+        <label for="stock">Stock:</label>
+        <input type="number" name="stock" id="stock" required>
+
+        <button type="submit">Actualizar Producto</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Producto</title>
+    <link rel="stylesheet" href="CSS/addproduct.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/logo.jpg" alt="Tierra del Café" />
+               
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">TIENDA</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="#"><img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/inicio-sesion.svg" alt="User Icon"></a>
+            </div>
+        </div>
+    </header>
+    <h2>Añadir Producto</h2>
+    <form action="add_producto.php" method="POST" enctype="multipart/form-data">
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" name="nombre" id="nombre" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" step="0.01" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea name="descripcion" id="descripcion" required></textarea>
+
+        <label for="categoria">Categoría:</label>
+        <input type="text" name="categoria" id="categoria" required>
+
+        <label for="imagen">Imagen:</label>
+        <input type="file" name="imagen" id="imagen" required>
+
+        <label for="stock">Stock Inicial:</label>
+        <input type="number" name="stock" id="stock" required>
+
+        <button type="submit">Añadir Producto</button>
+    </form>
+</body>
+</html>
+
+
+

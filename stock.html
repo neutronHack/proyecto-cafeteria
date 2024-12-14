@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Stock</title>
+    <link rel="stylesheet" href="CSS/stock.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/logo.jpg" alt="Tierra del Café" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">TIENDA</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
+                </ul>
+            </nav>
+            <div class="icons">
+                <a href="#"><img src="C:/xampp/htdocs/Proyecto-Cafeteria/Img/inicio-sesion.svg" alt="User Icon"></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Actualizar Stock de Producto</h1>
+        <form action="update_stock.php" method="POST">
+            <label for="product_id">ID del Producto:</label>
+            <input type="number" id="product_id" name="product_id" required>
+
+            <label for="quantity">Nueva Cantidad en Stock:</label>
+            <input type="number" id="quantity" name="quantity" min="0" required>
+
+            <button type="submit">Actualizar</button>
+        </form>
+    </div>
+</body>
+</html>

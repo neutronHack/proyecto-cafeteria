@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,6 @@
     <link rel="stylesheet" href="../CSS/PaginaInicial.css">
     <link rel="stylesheet" href="../CSS/DropdownMenu.css">
     <style>
-
         #page-title {
             text-align: center;
             font-size: 48px;
@@ -18,6 +18,7 @@
             margin-top: 100px;
             font-weight: bold;
         }
+
         .container {
             margin: 50px auto;
             padding: 20px;
@@ -31,11 +32,14 @@
             border-collapse: collapse;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #502d16;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px;
             text-align: center;
         }
@@ -46,8 +50,9 @@
         }
 
         h1 {
-           color: #502d16 !important
+            color: #502d16 !important
         }
+
         .input-quantity {
             width: 60px;
             text-align: center;
@@ -86,14 +91,14 @@
 
 <body>
     <header>
-        
+
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="logo">
-                    <a href="#"><img src="../Img/logo.jpg" alt="logo"  alt="Tierra del Café"></a>
+                    <a href="#"><img src="../Img/logo.jpg" alt="logo" alt="Tierra del Café"></a>
                 </div>
-                
-                <div class="nav-links"> 
+
+                <div class="nav-links">
                     <li class="nav-item"><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                         <ul class="dropdown">
                             <li><a href="../PHP/cafePage.php">CAFÉ PAQUETES</a></li>
@@ -105,7 +110,7 @@
                     <li class="ml-5 nav-item"><a href="../NosotrosPage.html">NOSOTROS<span class="glyphicon glyphicon-chevron-down"></span></a>
                 </div>
                 <div class="iconos">
-                    <a href="#carrito" >
+                    <a href="#carrito">
                         <img src="../Img/carrito.svg" class="iconos">
                     </a>
                     <a href="../perfil.php">
@@ -166,12 +171,15 @@
             </tbody>
         </table>
 
-        <button onclick="simulatePurchase()">Realizar compra</button>
+        <button onclick="simulatePurchase()">Procesar</button>
 
         <div id="summary">
             <h3>Resumen de la compra</h3>
             <p id="product-list">No has seleccionado productos.</p>
             <p id="total">Total: $0</p>
+            <button hidden id="btn_compra" onclick="simulatePurchase()">Comprar</button>
+            <button hidden id="btn_reset" onclick="Reset()">negar transaccion</button>
+
         </div>
     </div>
 
@@ -206,8 +214,49 @@
             }
 
             document.getElementById("total").innerHTML = `Total: $${total}`;
+
+            document.getElementById("btn_compra").hidden = false;
+            document.getElementById("btn_reset").hidden = false;
+        }
+
+
+        function Reset() {
+          
+            let productNames = ["Cafe Amargo", "Cafe Natural", "Cafe de Caramelo", "Cafe De Chocolate", "Cafe Negro", "Cafe Colombiano", "Cafe Expreso"];
+            let productPrices = [5, 6, 7, 8, 5, 9, 10];
+            let productQuantities = [
+                document.getElementById("product1").value = 0,
+                document.getElementById("product2").value = 0,
+                document.getElementById("product3").value = 0,
+                document.getElementById("product4").value = 0,
+                document.getElementById("product5").value = 0,
+                document.getElementById("product6").value = 0,
+                document.getElementById("product7").value = 0
+            ];
+            let productList = "";
+            let total = 0;
+
+            for (let i = 0; i < productQuantities.length; i++) {
+                if (productQuantities[i] > 0) {
+                    productList += `${productQuantities[i]} x ${productNames[i]} - $${productPrices[i]} cada uno<br>`;
+                    total += productQuantities[i] * productPrices[i];
+                }
+            }
+
+            if (productList === "") {
+                document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
+            } else {
+                document.getElementById("product-list").innerHTML = productList;
+            }
+
+            document.getElementById("total").innerHTML = `Total: $${total}`;
+            
+
+            document.getElementById("btn_compra").hidden = true;
+            document.getElementById("btn_reset").hidden = true;
         }
     </script>
 
 </body>
+
 </html>

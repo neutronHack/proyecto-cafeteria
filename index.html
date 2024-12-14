@@ -9,28 +9,32 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/JS/dropdownMenu.js"></script>
 </head>
 <body>
 
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="/Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
+                <img src="../proyecto-cafeteria/Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
+
+
+                
             </div>
             <div class="nav-links"> 
                 <li><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="">CAFÉ</a></li>
-                        <li><a href="">ACCESORIOS</a></li>
+                        <li><a href="#" onclick="redirect('listadoProductosCafe.php')">CAFÉ</a></li>
+                        <li><a href="#">ACCESORIOS</a></li>
                     </div>
                 <li><a href="#" class="us">NOSOTROS</a></li>
             </ul>
             <div class="iconos">
-                <a href="#carrito" >
-                    <img src="./Img/carrito.svg" class="iconos">
+                <a href="#carrito">
+                    <img src="../proyecto-cafeteria/Img/carrito.svg" class="iconos">
                 </a>
                 <a href="#perfil">
-                    <img src="/Img/inicio-sesion.svg" class="iconos">
+                    <img src="../proyecto-cafeteria/Img/inicio-sesion.svg" class="iconos">
                 </a>
             </div>
         </nav>
@@ -39,11 +43,13 @@
     <div class="container">
         <div class="wrapper">
             <div class="wrapper-holder">
-                <div id="slider-img1"></div>
-                <div id="slider-img2"></div>
-                <div id="slider-img3"></div>
-                <div id="slider-img4"></div>
+                <div id="slider-img1"> <img src="../proyecto-cafeteria/Img/GranoCafeSlider1.jpg" alt=""> </div>
+                <div id="slider-img2"> <img src="../proyecto-cafeteria/Img/TazasCafeSlider2.jpg" alt=""></div>
+                <div id="slider-img3"> <img src="../proyecto-cafeteria/Img/prensaFrancesaSlider3.jpg" alt=""></div>
+                <div id="slider-img4"> <img src="../proyecto-cafeteria/Img/chorreadorCafeSlider4.jpg" alt=""></div>
             </div>
+
+           
         </div>
         <div class="button-holder">
             <a href="#slider-img1" class="button"></a>
@@ -53,6 +59,6 @@
         </div>
     </div>
 
-    
+ 
 </body>
 </html>

@@ -3,6 +3,12 @@ include 'conexionBD.php';
 include 'informacion_session.php';
 session_start();
 
+// Verificar si el formulario fue enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    InsertarProducto();
+}
+
+
 function InsertarProducto()
 {
     include 'conexionBD.php';
@@ -21,7 +27,7 @@ function InsertarProducto()
 
     // Ejecutar la consulta
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert(Producto agregado exitosamente.);   </script>";
+        echo "<script>alert('Producto agregado exitosamente.');   </script>";
     } else {
         echo "Error al agregar el producto: " . $conn->error;
     }
@@ -30,7 +36,7 @@ function InsertarProducto()
     $conn->close();
 }
 
-InsertarProducto();
+
 
 ?>
 
@@ -110,6 +116,7 @@ InsertarProducto();
 </head>
 
 <body>
+    <a href="menuAdmin.php">Volver</a>
     <div class="container">
         <h2>Agregar Nuevo Producto</h2>
         <form action="addProducto.php" method="POST">
@@ -128,7 +135,7 @@ InsertarProducto();
             <label for="stock">Stock Disponible:</label>
             <input type="number" id="stock" name="stock" required>
 
-            <input type="submit" value="Agregar Producto">
+            <input type="submit" value="Agregar Producto" >
         </form>
     </div>
 </body>

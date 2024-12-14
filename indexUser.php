@@ -24,7 +24,8 @@
             <div class="nav-links"> 
                 <li><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="PHP/cafePage.php" >CAFÉ</a></li>
+                        <li><a href="PHP/cafePage.php" >PAQUETES CAFÉ </a></li>
+                        <li><a href="PHP/ORDENAR.php" > ORDENAR CAFÉ </a></li>
                         <li><a href="PHP/AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
                 <li><a href="NosotrosPage.html" class="us">NOSOTROS</a></li>
@@ -42,7 +43,7 @@
             
         </nav>
     </header>
-
+<br><br><br>
     <div class="container">
         <div class="wrapper">
             <div class="wrapper-holder">

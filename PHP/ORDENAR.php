@@ -7,8 +7,8 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./CSS/PaginaInicial.css">
-    <link rel="stylesheet" href="./CSS/DropdownMenu.css">
+    <link rel="stylesheet" href="../CSS/PaginaInicial.css">
+    <link rel="stylesheet" href="../CSS/DropdownMenu.css">
     <style>
 
         #page-title {
@@ -86,31 +86,30 @@
 
 <body>
     <header>
-        <div class="header-top">
-            <img src="./Img/Granos de cafe.jpg" class="rounded mx-auto d-block" width="100%" alt="Granos de cafe">
-        </div>
-
+        
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="logo">
-                    <a href="#"><img src="./Img/logo.jpg" alt="logo"  alt="Tierra del Café"></a>
+                    <a href="#"><img src="../Img/logo.jpg" alt="logo"  alt="Tierra del Café"></a>
                 </div>
                 
                 <div class="nav-links"> 
                     <li class="nav-item"><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                         <ul class="dropdown">
-                            <li><a href="">CAFÉ</a></li>
-                            <li><a href="">ACCESORIOS</a></li>
+                            <li><a href="../PHP/cafePage.php">CAFÉ PAQUETES</a></li>
+                            <li><a href="#">ORDENAR CAFÉ</a></li>
+
+                            <li><a href="../PHP/AccesoriosPage.php">ACCESORIOS</a></li>
                         </ul>
                     </li>
-                    <li class="ml-5 nav-item"><a href="javascript:void(0)">NOSOTROS<span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <li class="ml-5 nav-item"><a href="../NosotrosPage.html">NOSOTROS<span class="glyphicon glyphicon-chevron-down"></span></a>
                 </div>
                 <div class="iconos">
                     <a href="#carrito" >
-                        <img src="./Img/carrito.svg" class="iconos">
+                        <img src="../Img/carrito.svg" class="iconos">
                     </a>
-                    <a href="#perfil">
-                        <img src="./Img/inicio-sesion.svg" class="iconos">
+                    <a href="../perfil.php">
+                        <img src="../Img/inicio-sesion.svg" class="iconos">
                     </a>
                 </div>
             </div>
@@ -167,7 +166,7 @@
             </tbody>
         </table>
 
-        <button onclick="simulatePurchase()">Simular Compra</button>
+        <button onclick="simulatePurchase()">Realizar compra</button>
 
         <div id="summary">
             <h3>Resumen de la compra</h3>

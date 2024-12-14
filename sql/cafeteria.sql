@@ -2,13 +2,6 @@ CREATE DATABASE cafeteria;
 
 USE cafeteria;
 
-CREATE TABLE clientes (
-    id_cliente INT PRIMARY KEY,
-    nombre VARCHAR(100),
-    direccion VARCHAR(255),
-    telefono VARCHAR(20),
-    email VARCHAR(100)
-);
 
 CREATE TABLE metodopago (
     id_metodoPago INT PRIMARY KEY,

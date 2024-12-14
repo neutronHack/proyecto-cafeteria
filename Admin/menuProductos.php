@@ -65,9 +65,9 @@ session_start();
     <h1>Gestión de Productos</h1>
     <div class="button-container">
         
-        <button onclick="alert('Añadir Producto'); window.location.href = 'addProducto.php';">&bull; Añadir Producto</button>
-        <button onclick="alert('Editar Producto'); window.location.href = 'editarProducto.php';">&bull; Editar Producto</button>
-        <button onclick="alert('Gestionar Stock'); window.location.href = 'gestionProductos.php';">&bull; Gestionar Stock</button>
+        <button onclick=" window.location.href = 'addProducto.php';">&bull; Añadir Producto</button>
+        <button onclick=" window.location.href = 'editarProducto.php';">&bull; Editar Producto</button>
+        
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
     </div>
 </body>

@@ -65,9 +65,9 @@ session_start();
     <h1>Elige una de estas opciones</h1>
     <div class="button-container">
         
-        <button onclick="alert('Añadir Producto'); window.location.href = 'menuProductos.php';">&bull; gestion productos</button>
-        <button onclick="alert('Editar Producto'); window.location.href = 'editarProducto.php';">&bull; gestion pedidos</button>
-        <button onclick="alert('Gestionar Stock'); window.location.href = 'users.php';">&bull;usuarios del sistema</button>
+        <button onclick=" window.location.href = 'menuProductos.php';">&bull; gestion productos</button>
+        <button onclick=" window.location.href = 'pedidos.php';">&bull; gestion pedidos</button>
+        <button onclick=" window.location.href = 'users.php';">&bull;usuarios del sistema</button>
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
 
         <a href="../index.html">Cerrar session</a>

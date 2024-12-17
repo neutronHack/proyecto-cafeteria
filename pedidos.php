@@ -57,10 +57,20 @@ session_start();
             //MIENTRAS ENCUENTRE COINCIDENCIA CON ALGUNA FILA DEL USUARIO TRAE LOS DATOS INDEPENDIENTES DE CADA PEDIDO
             while ($mostrar_datosFactura = mysqli_fetch_array($ejecutar_query)) {
                 $totalPagar = $mostrar_datosFactura['Total'];
+                $id_pedido = $mostrar_datosFactura['id_factura'];
+                $fecha_emision = $mostrar_datosFactura['fecha_emision'];
+                $formaPago = $mostrar_datosFactura['forma_pago'];
+                $direccion = $mostrar_datosFactura['Direccion'];
+
                echo" <div class='pedido'> ";
+               echo 'ID de la factura: '. $id_pedido .'<br>';
+               echo 'Fecha de emision de la factura: '. $fecha_emision .'<br>';
+
               echo'Correo del usuario: '. getDataUser(4);
-              echo '  <p>Pedido </p>';
-              echo '<p>'. $totalPagar. '</p>'
+              echo '  <p>Total </p>';
+              echo '<p>'. $totalPagar. '</p>';
+              echo 'forma de pago utilizada: ' . $formaPago . '<br>';
+              echo '<p> Direccion de entrega: '. $direccion. '</p>';
             ?>
 
 

@@ -32,7 +32,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 
-
 ?>
 
 
@@ -198,75 +197,76 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <label for="pago">Metodo de pago</label>
 
 
-                <p> MasterCard <input type="radio"  name="pago" value="MasterCard" id="MasterCard" required></p>
-                <p> VISA<input type="radio"         name="pago" id="VISA" value="VISA" required></p>
-                <p> PAYPAL<input type="radio"       name="pago" id="PAYPAL" value="Paypal" required></p>
+                <p> MasterCard <input type="radio" name="pago" value="MasterCard" id="MasterCard" required></p>
+                <p> VISA<input type="radio" name="pago" id="VISA" value="VISA" required></p>
+                <p> PAYPAL<input type="radio" name="pago" id="PAYPAL" value="Paypal" required></p>
 
+                <p>Direccion: <input type="text" name="direction" id="direction" required></p>
 
-
-
+                <p>Correo a nombre de <?= getDataUser(4)?> </p>
                 <p>total <input type="number" name="total" id="totalInput" readonly> </p>
 
-                <p>Correo<input type="text" name="correoUser" id="correoUser" require></p>
+               
+
                 <button hidden id="btn_compra" type="submit">Comprar</button>
-                
+
             </form>
             <button type="reset" hidden id="btn_reset" onclick="Reset()">Negar transacción</button>
-           
-
-    </div>
 
 
-    <script>
-        // Recuperar arrays de PHP a JavaScript
-        let productNames = <?php echo json_encode($productNames); ?>;
-        let productPrices = <?php echo json_encode($productPrices); ?>;
+        </div>
 
-        function simulatePurchase() {
-            let productQuantities = [];
-            for (let i = 1; i <= productNames.length; i++) {
-                productQuantities.push(document.getElementById(`product${i}`).value);
-            }
 
-            let productList = "";
-            let total = 0;
+        <script>
+            // Recuperar arrays de PHP a JavaScript
+            let productNames = <?php echo json_encode($productNames); ?>;
+            let productPrices = <?php echo json_encode($productPrices); ?>;
 
-            for (let i = 0; i < productQuantities.length; i++) {
-                if (productQuantities[i] > 0) {
-                    productList += `${productQuantities[i]} x ${productNames[i]} - $${productPrices[i]} cada uno<br>`;
-                    total += productQuantities[i] * productPrices[i];
+            function simulatePurchase() {
+                let productQuantities = [];
+                for (let i = 1; i <= productNames.length; i++) {
+                    productQuantities.push(document.getElementById(`product${i}`).value);
                 }
+
+                let productList = "";
+                let total = 0;
+
+                for (let i = 0; i < productQuantities.length; i++) {
+                    if (productQuantities[i] > 0) {
+                        productList += `${productQuantities[i]} x ${productNames[i]} - $${productPrices[i]} cada uno<br>`;
+                        total += productQuantities[i] * productPrices[i];
+                    }
+                }
+
+                document.getElementById("product-list").innerHTML = productList || "No has seleccionado productos.";
+                document.getElementById("total").innerHTML = `Total: $${total}`;
+
+                document.getElementById("total").innerText = `Total: $${total}`;
+
+                // Inserta el valor del total en el input oculto
+                document.getElementById("totalInput").value = total;
+
+                document.getElementById("btn_compra").hidden = total === 0;
+                document.getElementById("btn_reset").hidden = total === 0;
+
             }
 
-            document.getElementById("product-list").innerHTML = productList || "No has seleccionado productos.";
-            document.getElementById("total").innerHTML = `Total: $${total}`;
+            function Reset() {
+                for (let i = 1; i <= productNames.length; i++) {
+                    document.getElementById(`product${i}`).value = 0;
+                }
+                document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
+                document.getElementById("total").innerHTML = "Total: $0";
+                document.getElementById("btn_compra").hidden = true;
+                document.getElementById("btn_reset").hidden = true;
 
-            document.getElementById("total").innerText = `Total: $${total}`;
+                document.getElementById("total").innerText = `Total: $${total}`;
 
-            // Inserta el valor del total en el input oculto
-            document.getElementById("totalInput").value = total;
+                // Inserta el valor del total en el input oculto
+                document.getElementById("totalInput").value = total;
 
-            document.getElementById("btn_compra").hidden = total === 0;
-            document.getElementById("btn_reset").hidden = total === 0;
-
-        }
-
-        function Reset() {
-            for (let i = 1; i <= productNames.length; i++) {
-                document.getElementById(`product${i}`).value = 0;
             }
-            document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
-            document.getElementById("total").innerHTML = "Total: $0";
-            document.getElementById("btn_compra").hidden = true;
-            document.getElementById("btn_reset").hidden = true;
-
-            document.getElementById("total").innerText = `Total: $${total}`;
-
-            // Inserta el valor del total en el input oculto
-            document.getElementById("totalInput").value = total;
-
-        }
-    </script>
+        </script>
 
 </body>
 <a href=""></a>

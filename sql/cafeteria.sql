@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-12-2024 a las 04:26:35
+-- Tiempo de generación: 17-12-2024 a las 21:15:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -51,28 +51,33 @@ CREATE TABLE `factura` (
   `fecha_emision` date DEFAULT NULL,
   `forma_pago` varchar(50) DEFAULT NULL,
   `Total` decimal(10,2) DEFAULT NULL,
-  `Correo_comprador` varchar(50) NOT NULL
+  `Correo_comprador` varchar(50) NOT NULL,
+  `Direccion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `factura`
 --
 
-INSERT INTO `factura` (`id_factura`, `fecha_emision`, `forma_pago`, `Total`, `Correo_comprador`) VALUES
-(1, '2024-01-10', 'PayPal', 31.00, ''),
-(2, '0000-00-00', '[value-3]', 0.00, '[value-5]'),
-(3, '2024-12-14', 'Paypal', 9600.00, 'kspdokap@gmail.com'),
-(4, '2024-12-14', 'Paypal', 9600.00, 'kspdokap@gmail.com'),
-(5, '2024-12-14', 'VISA', 53600.00, 'kspdokap@gmail.com'),
-(6, '2024-12-14', 'VISA', 53600.00, 'kspdokap@gmail.com'),
-(7, '2024-12-14', 'VISA', 53600.00, 'kspdokap@gmail.com'),
-(8, '2024-12-14', 'Paypal', 3500.00, 'kspdokap@gmail.com'),
-(9, '2024-12-14', 'Paypal', 3500.00, 'kspdokap@gmail.com'),
-(10, '2024-12-14', 'MasterCard', 7000.00, 'kspdokap@gmail.com'),
-(11, '2024-12-14', 'Paypal', 9600.00, 'kspdokap@gmail.com'),
-(12, '2024-12-14', 'MasterCard', 7000.00, 'kspdokap@gmail.com'),
-(13, '2024-12-14', 'MasterCard', 7000.00, 'kspdokap@gmail.com'),
-(14, '2024-12-17', 'MasterCard', 26100.00, 'ejemplo@gmail.com');
+INSERT INTO `factura` (`id_factura`, `fecha_emision`, `forma_pago`, `Total`, `Correo_comprador`, `Direccion`) VALUES
+(1, '2024-01-10', 'PayPal', 31.00, '', ''),
+(2, '0000-00-00', '[value-3]', 0.00, '[value-5]', ''),
+(3, '2024-12-14', 'Paypal', 9600.00, 'kspdokap@gmail.com', ''),
+(4, '2024-12-14', 'Paypal', 9600.00, 'kspdokap@gmail.com', ''),
+(5, '2024-12-14', 'VISA', 53600.00, 'kspdokap@gmail.com', ''),
+(6, '2024-12-14', 'VISA', 53600.00, 'kspdokap@gmail.com', ''),
+(7, '2024-12-14', 'VISA', 53600.00, 'kspdokap@gmail.com', ''),
+(8, '2024-12-14', 'Paypal', 3500.00, 'kspdokap@gmail.com', ''),
+(9, '2024-12-14', 'Paypal', 3500.00, 'kspdokap@gmail.com', ''),
+(10, '2024-12-14', 'MasterCard', 7000.00, 'kspdokap@gmail.com', ''),
+(11, '2024-12-14', 'Paypal', 9600.00, 'kspdokap@gmail.com', ''),
+(12, '2024-12-14', 'MasterCard', 7000.00, 'kspdokap@gmail.com', ''),
+(13, '2024-12-14', 'MasterCard', 7000.00, 'kspdokap@gmail.com', ''),
+(14, '2024-12-17', 'MasterCard', 26100.00, 'ejemplo@gmail.com', ''),
+(15, '2024-12-17', 'MasterCard', 38100.00, '', 'sna jose'),
+(16, '2024-12-17', 'MasterCard', 20200.00, 'ejemplo@gmail.com', 'sna jose'),
+(17, '2024-12-17', 'MasterCard', 58600.00, 'ejemplo@gmail.com', 'sna jose desamparados'),
+(18, '2024-12-17', 'Paypal', 21400.00, 'ejemplo@gmail.com', 'San miguel desamparados');
 
 -- --------------------------------------------------------
 
@@ -176,7 +181,7 @@ INSERT INTO `usuario` (`id_usuario`, `id_Rol`, `nombre`, `PrimerApellido`, `Segu
 (4, 2, 'jose', 'benavaide', 'sadd', 'dpoawmfa@gmail.copm', '1234', '9999', 'dasdwda', NULL),
 (5, 2, 'jose', 'benavaide', 'sadd', 'klkl@gmail.com', 'llll', '9999', 'dasdw', NULL),
 (6, 2, 'rqwe', 'rwqe', 'rqwe', 'mm@gmail.com', '1111', '4123', '213213', 'MasterCard'),
-(7, 2, 'manuel', 'lopez', 'ramirez', 'ejemplo@gmail.com', '1234', '9999', 'san jose', 'MasterCard');
+(7, 2, 'manuel', 'lopez', 'ramirez', 'ejemplo@gmail.com', '1234', '9999', 'san jose', 'Paypal');
 
 --
 -- Índices para tablas volcadas
@@ -237,7 +242,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -291,7 +296,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-ALTER TABLE `pedido`
-  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `pedido_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);

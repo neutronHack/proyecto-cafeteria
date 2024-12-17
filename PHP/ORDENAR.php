@@ -1,6 +1,6 @@
 <?php
 require '../conexion/conexionBD.php'; // Incluye tu archivo de conexión a la base de datos.
-include '../informacion_session.php';
+include 'informacion_session.php';
 session_start();
 
 // Consulta SQL para obtener los productos
@@ -193,20 +193,26 @@ while ($row = mysqli_fetch_assoc($result)) {
             <p id="total">Total: $0</p>
 
             <form id="formulario" action="../cliente/facturacion.php" method="post">
+                
 
-                <label for="pago">Metodo de pago</label>
+                    <label for="pago">Metodo de pago</label>
 
 
-                <p> MasterCard <input type="radio" name="pago" value="MasterCard" id="MasterCard" required></p>
-                <p> VISA<input type="radio" name="pago" id="VISA" value="VISA" required></p>
-                <p> PAYPAL<input type="radio" name="pago" id="PAYPAL" value="Paypal" required></p>
+                    <p> MasterCard <input type="radio" name="pago" value="MasterCard" id="MasterCard" required></p>
+                    <p> VISA<input type="radio" name="pago" id="VISA" value="VISA" required></p>
+                    <p> PAYPAL<input type="radio" name="pago" id="PAYPAL" value="Paypal" required></p>
 
-                <p>Direccion: <input type="text" name="direction" id="direction" required></p>
+                    <p>Direccion: <input type="text" name="direction" id="direction" required></p>
 
-                <p>Correo a nombre de <?= getDataUser(4)?> </p>
-                <p>total <input type="number" name="total" id="totalInput" readonly> </p>
+                    <p>Correo de comprador <?= getDataUser(4) ?> </p>
+                    <p>total <input type="number" name="total" id="totalInput" readonly> </p>
 
-               
+
+
+              
+
+
+
 
                 <button hidden id="btn_compra" type="submit">Comprar</button>
 
@@ -248,22 +254,14 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                 document.getElementById("btn_compra").hidden = total === 0;
                 document.getElementById("btn_reset").hidden = total === 0;
+                
 
             }
 
             function Reset() {
-                for (let i = 1; i <= productNames.length; i++) {
-                    document.getElementById(`product${i}`).value = 0;
-                }
-                document.getElementById("product-list").innerHTML = "No has seleccionado productos.";
-                document.getElementById("total").innerHTML = "Total: $0";
-                document.getElementById("btn_compra").hidden = true;
-                document.getElementById("btn_reset").hidden = true;
 
-                document.getElementById("total").innerText = `Total: $${total}`;
+                window.location.reload();
 
-                // Inserta el valor del total en el input oculto
-                document.getElementById("totalInput").value = total;
 
             }
         </script>

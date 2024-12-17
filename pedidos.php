@@ -45,6 +45,10 @@
             </div>
             <!-- Diğer siparişler buraya eklenebilir -->
         </section>
+
+        <div>
+            <button onclick="window.location.href = 'indexUser.php';" class="regresarBtn">Regresar</button>
+        </div>
     </main>
    
 </body>

@@ -34,6 +34,9 @@
             <h2>Direcciones</h2>
             <button class="add-direccion">+ Añadir Dirección</button>
         </section>
+        <div>
+            <button onclick="window.location.href = 'indexUser.php';" class="regresarBtn">Regresar</button>
+        </div>
     </main>
 </body>
 </html>

@@ -28,7 +28,7 @@ session_start();
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="../proyecto-cafeteria/Img/logo.jpg" alt="logo" alt="Tierra del Café">
+                <img src="/Img/logo.jpg" alt="logo" alt="Tierra del Café">
 
 
 
@@ -59,6 +59,10 @@ session_start();
                 <p>direccion: <?= getDataUser(7); ?> </p>
                 <p>metodo de pago preferido : <?= getDataUser(8); ?> </p>
             </div>
+        </div>
+
+        <div>
+            <button onclick="window.location.href = 'indexUser.php';" class="regresarBtn">Regresar</button>
         </div>
     </main>
 </body>

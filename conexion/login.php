@@ -19,13 +19,13 @@ if ($row['CorreoElectronico'] == $CorreoElectronico) {
 
     if ($row['contrasena'] == $contrasena) {
 
-        echo "<script> alert('has iniciado sesion con exito')    </script>";
+       
         if ($row['id_Rol'] == 1) {
             // Administrador
 
             $ID_USUARIO = $row['id_usuario'];
             $correoUsuario = $row['CorreoElectronico'];
-            
+            echo "<script> alert('has iniciado sesion como admin')    </script>";
             $_SESSION['IDuser'] = $ID_USUARIO;// ----------------------------------------------- ID DE SESION DE USUARIO------------------------------
             $_SESSION['CorreoUser'] = $correoUsuario; // -------------------------------------------- CORREO DEL USUARIO EN LA SESSION ----------------------------
             echo "<script> window.location.href = `../Admin/menuAdmin.php`; </script>";
@@ -37,7 +37,7 @@ if ($row['CorreoElectronico'] == $CorreoElectronico) {
 
             $ID_USUARIO = $row['id_usuario'];
             $correoUsuario = $row['CorreoElectronico'];
-            
+            echo "<script> alert('has iniciado sesion con exito')    </script>";
             $_SESSION['IDuser'] = $ID_USUARIO;// ----------------------------------------------- ID DE SESION DE USUARIO------------------------------
             $_SESSION['CorreoUser'] = $correoUsuario; // -------------------------------------------- CORREO DEL USUARIO EN LA SESSION ----------------------------
             echo "<script> window.location.href = `../indexUser.php`; </script>";

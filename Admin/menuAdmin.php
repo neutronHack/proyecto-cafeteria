@@ -66,7 +66,7 @@ session_start();
     <div class="button-container">
         
         <button onclick=" window.location.href = 'menuProductos.php';">&bull; gestion productos</button>
-        <button onclick=" window.location.href = 'pedidos.php';">&bull; gestion pedidos</button>
+        <button onclick=" window.location.href = 'pedidos.php';">&bull; Ver todos pedidos</button>
         <button onclick=" window.location.href = 'users.php';">&bull;usuarios del sistema</button>
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
 

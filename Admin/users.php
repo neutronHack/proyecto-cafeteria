@@ -27,7 +27,7 @@ if (isset($_GET['id_producto'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
+    <title>Lista de usuarios</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -122,7 +122,7 @@ if (isset($_GET['id_producto'])) {
                 echo "</tr>";
             }
         } else {
-            echo "<tr><td colspan='8'>No hay productos registrados.</td></tr>";
+            echo "<tr><td colspan='8'>No hay usuarios registrados.</td></tr>";
         }
 
         $conn->close();

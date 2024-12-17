@@ -22,7 +22,7 @@ session_start();
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f9;
+            background-color: #ffffff;
         }
 
         h1 {
@@ -34,12 +34,13 @@ session_start();
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 25px;
+            
         }
 
         /* Estilos para los botones */
         button {
-            background-color: #007BFF;
+            background-color: #977553;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -51,26 +52,32 @@ session_start();
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #583f26;
         }
 
         button:active {
             transform: scale(0.98);
         }
+
+
+        .log-out{
+            text-align: center;
+        }
+
+
     </style>
 </head>
 <body>
-<h1>pagina de administrador</h1>
+<h1>ADMINISTRADOR</h1>
 <img src="../Img/logo.jpg" width="150" alt="">
-    <h1>Elige una de estas opciones</h1>
     <div class="button-container">
         
-        <button onclick=" window.location.href = 'menuProductos.php';">&bull; gestion productos</button>
-        <button onclick=" window.location.href = 'pedidos.php';">&bull; Ver todos pedidos</button>
-        <button onclick=" window.location.href = 'users.php';">&bull;usuarios del sistema</button>
+        <button onclick=" window.location.href = 'menuProductos.php';">GESTION PRODUCTOS</button>
+        <button onclick=" window.location.href = 'pedidos.php';">VER PEDIDOS</button>
+        <button onclick=" window.location.href = 'users.php';">USUARIOS DEL SISTEMA</button>
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
 
-        <a href="../index.html">Cerrar session</a>
+        <a href="../index.html" class="log-out">Cerrar Session</a>
     </div>
 </body>
 </html>

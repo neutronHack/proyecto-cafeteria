@@ -42,9 +42,6 @@ session_start();
             <a href="perfil.php">
                 <button>Información de perfil</button>
             </a>
-            <a href="direcciones.php">
-                <button>Ver Direcciones</button>
-            </a>
             <a href="pedidos.php">
                 <button>Pedidos</button>
             </a>

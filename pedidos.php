@@ -24,9 +24,6 @@
             <a href="perfil.php" class="button">
                 <button>Información de perfil</button>
             </a>
-            <a href="direcciones.php" class="button">
-                <button>Ver Direcciones</button>
-            </a>
             <button class="active">Pedidos</button>
             
                 <button onclick="window.location.href = 'index.html';" class="logout">Cerrar Sesión</button>

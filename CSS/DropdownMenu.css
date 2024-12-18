@@ -50,6 +50,19 @@
 
 }
 
+.navbar a {
+    color: black; 
+    text-decoration: none; 
+    font-weight: bold; 
+    padding: 10px 15px; 
+    transition: color 0.3s ease; 
+}
+
+.navbar a:hover {
+    color: #945B30; 
+    text-decoration: underline; 
+}
+
 .nav-links li ul.dropdown {
   position: absolute;
   display: none;

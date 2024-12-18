@@ -19,7 +19,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Su perfil de tierra del café</title>
+    <title>INFORMACION DEL PERFIL</title>
 
     <link rel="stylesheet" href="CSS/perfil.css ">
 </head>
@@ -28,7 +28,7 @@ session_start();
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="../proyecto-cafeteria/Img/logo.jpg" alt="logo" alt="Tierra del Café">
+                <img src="/Img/logo.jpg" alt="logo" alt="Tierra del Café">
 
 
 
@@ -37,7 +37,7 @@ session_start();
         </nav>
     </header>
     <main>
-        <h1>Su perfil de tierra del café   </h1>
+        <h1>PERFIL</h1>
         <div class="button-container">
             <a href="perfil.php">
                 <button>Información de perfil</button>

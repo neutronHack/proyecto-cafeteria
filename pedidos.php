@@ -24,7 +24,7 @@ session_start();
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="../proyecto-cafeteria/Img/logo.jpg" alt="logo" alt="Tierra del Café">
+                <img src="/Img/logo.jpg" alt="logo" alt="Tierra del Café">
 
 
 
@@ -33,7 +33,7 @@ session_start();
         </nav>
     </header>
     <main>
-        <h1>Su perfil de Tierra del Café</h1>
+        <h1>PEDIDOS</h1>
         <div class="button-container">
             <a href="perfil.php" class="button">
                 <button>Información de perfil</button>

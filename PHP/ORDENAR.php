@@ -180,6 +180,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     echo "<td><input type='number' class='input-quantity' id='product{$index}' min='0' value='0'></td>";
                     echo "</tr>";
                     $index++;
+                    
                 }
                 ?>
             </tbody>

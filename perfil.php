@@ -28,7 +28,7 @@ session_start();
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="/Img/logo.jpg" alt="logo" alt="Tierra del Café">
+                <img src="./Img/logo.jpg" alt="logo" alt="Tierra del Café">
 
 
 

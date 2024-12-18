@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="../proyecto-cafeteria/Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
+                <img src="/proyecto-cafeteria/Img/logo.jpg" alt="logo"  alt="Tierra del Café"> 
 
 
                 
@@ -24,8 +24,8 @@
             <div class="nav-links"> 
                 <li><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="PHP/cafePage.php" >CAFE</a></li>
-                        <li><a href="PHP/ORDENAR.php" > ORDENAR</a></li>
+                        <li><a href="PHP/cafePage.php">CAFE</a></li>
+                        <li><a href="PHP/ORDENAR.php">ORDENAR</a></li>
                         <li><a href="PHP/AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
                 <li><a href="NosotrosPage.html">NOSOTROS</a></li>

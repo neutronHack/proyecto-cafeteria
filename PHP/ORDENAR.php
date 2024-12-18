@@ -138,8 +138,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <div class="nav-links">
                     <li class="nav-item"><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                         <ul class="dropdown">
-                            <li><a href="../PHP/cafePage.php">Nuestros productos</a></li>
-                            <li><a href="#">ORDENAR CAFÉ</a></li>
+                            <li><a href="../PHP/cafePage.php">CAFÉ</a></li>
+                            <li><a href="#">ORDENAR</a></li>
 
                             <li><a href="../PHP/AccesoriosPage.php">ACCESORIOS</a></li>
                         </ul>
@@ -147,9 +147,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <li class="ml-5 nav-item"><a href="../NosotrosPage.html">NOSOTROS<span class="glyphicon glyphicon-chevron-down"></span></a>
                 </div>
                 <div class="iconos">
-                    <a href="#carrito">
-                        <img src="../Img/carrito.svg" class="iconos">
-                    </a>
+        
                     <a href="../perfil.php">
                         <img src="../Img/inicio-sesion.svg" class="iconos">
                     </a>

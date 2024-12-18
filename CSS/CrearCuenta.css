@@ -118,3 +118,17 @@ input:focus {
         padding: 15px;
     }
 }
+
+.regresarBtn {
+    display: inline-block;
+    padding: 7.5px 20px;
+    border-radius: 5px;
+    background-color:linear-gradient(to bottom, #8b5e3c, #bd785d); 
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    margin: 20px;
+    
+}

@@ -1,12 +1,13 @@
 <?php 
 
-require '../conexion/conexionBD.php'; // Incluye tu archivo de conexión a la base de datos.
-include '../informacion_session.php';
+require '../conexion/conexionBD.php';
+include 'informacion_session.php';
 session_start();
 
     $pago = $_POST['pago'];
     $totalPagar = $_POST['total'];
-    $correoUtilizado = $_POST['correoUser'];
+    $correoUtilizado = getDataUser(4);
+    $direccion_pedido = $_POST['direction'];
 
     //echo $pago .'<br> ';
     //echo $totalPagar .'<br> ';
@@ -14,7 +15,7 @@ session_start();
     //echo $correoUtilizado .'<br> ';
     $fecha_ingreso = date('Y-m-d'); // Año-Mes-Día en formato numérico
 
-    $sql = "INSERT INTO `factura`( `fecha_emision`, `forma_pago`, `Total`, `Correo_comprador`) VALUES ('$fecha_ingreso','$pago','$totalPagar','$correoUtilizado');";
+    $sql = "INSERT INTO `factura`( `fecha_emision`, `forma_pago`, `Total`, `Correo_comprador`, `Direccion`) VALUES ('$fecha_ingreso','$pago','$totalPagar','$correoUtilizado', '$direccion_pedido');";
     $ejecutar_consulta = mysqli_query($conn,$sql);
 
      $Id_usuario  =  $_SESSION['IDuser'];

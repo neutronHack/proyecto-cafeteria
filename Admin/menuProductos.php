@@ -22,7 +22,7 @@ session_start();
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f9;
+            background-color: #ffffff;
         }
 
         h1 {
@@ -34,12 +34,12 @@ session_start();
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 50px;
         }
 
         /* Estilos para los botones */
         button {
-            background-color: #007BFF;
+            background-color: #977553;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -48,10 +48,11 @@ session_start();
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #583f26;
         }
 
         button:active {
@@ -60,15 +61,19 @@ session_start();
     </style>
 </head>
 <body>
-<h1>pagina de admin </h1>
+<h1>ADMINISTRADOR</h1>
 <img src="../Img/logo.jpg" width="150" alt="">
     <h1>Gestión de Productos</h1>
     <div class="button-container">
         
-        <button onclick=" window.location.href = 'addProducto.php';">&bull; Añadir Producto</button>
-        <button onclick=" window.location.href = 'editarProducto.php';">&bull; Editar Producto</button>
+        <button onclick=" window.location.href = 'addProducto.php';">AÑADIR PRODUCTO</button>
+        <button onclick=" window.location.href = 'editarProducto.php';">EDITAR PRODUCTO</button>
         
         <p>sesion iniciada como: <?= getCorreoUser()?></p>
+    </div>
+
+    <div class="button-container">
+            <button onclick="window.location.href = 'menuAdmin.php';" class="regresarBtn">Regresar</button>
     </div>
 </body>
 </html>

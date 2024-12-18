@@ -119,3 +119,31 @@ input[type="submit"]:hover {
         padding: 15px;
     }
 }
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #977553;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #583f26;
+}
+
+button:active {
+    transform: scale(0.98);
+}

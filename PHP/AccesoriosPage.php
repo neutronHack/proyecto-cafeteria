@@ -133,17 +133,14 @@ session_start();
             <div class="nav-links"> 
                 <li><a href="#">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="cafePage.php" >Nuestros productos</a></li>
-                        <li><a href="ORDENAR.php" > ORDENAR CAFÉ </a></li>
+                        <li><a href="cafePage.php" >CAFE</a></li>
+                        <li><a href="ORDENAR.php" > ORDENAR</a></li>
                         <li><a href="AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
                     <li><a href="../NosotrosPage.html" class="us">NOSOTROS</a></li>
             </ul>
             
                 <div class="iconos">
-                    <a href="#carrito">
-                        <img src="../Img/carrito.svg" class="iconos">
-                    </a>
                     
                     <a href="../perfil.php">
                     

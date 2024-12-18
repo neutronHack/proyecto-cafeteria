@@ -90,7 +90,11 @@ function InsertarProducto()
 
             <input type="submit" value="Agregar Producto">
         </form>
+        
     </div>
+    <div>
+        <button onclick="window.location.href = 'menuProductos.php';" class="regresarBtn">Regresar</button>
+        </div>
 </body>
 
 </html>

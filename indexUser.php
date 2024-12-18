@@ -24,18 +24,15 @@
             <div class="nav-links"> 
                 <li><a href="javascript:void(0)">TIENDA<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
                     <ul class="dropdown">
-                        <li><a href="PHP/cafePage.php" >Nuestros productos </a></li>
-                        <li><a href="PHP/ORDENAR.php" > ORDENAR CAFÉ </a></li>
+                        <li><a href="PHP/cafePage.php" >CAFE</a></li>
+                        <li><a href="PHP/ORDENAR.php" > ORDENAR</a></li>
                         <li><a href="PHP/AccesoriosPage.php">ACCESORIOS</a></li>
                     </div>
-                <li><a href="NosotrosPage.html" class="us">NOSOTROS</a></li>
+                <li><a href="NosotrosPage.html">NOSOTROS</a></li>
             </ul>
             
                 <div class="iconos">
-                    <a href="#carrito">
-                        <img src="../proyecto-cafeteria/Img/carrito.svg" class="iconos">
-                    </a>
-                    
+            
                     <a href="../proyecto-cafeteria/perfil.php">
                     
                         <img src="../proyecto-cafeteria/Img/inicio-sesion.svg" class="iconos">
